@@ -5,43 +5,53 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/answers", label: "Answers" },
-  { href: "/add", label: "Add" },
+// Static so the navbar never pulls question data into the client bundle.
+const TRACKS = [
+  { id: "sql", title: "SQL", icon: "🗄️" },
+  { id: "html", title: "HTML", icon: "📄" },
+  { id: "css", title: "CSS", icon: "🎨" },
+  { id: "js", title: "JavaScript", icon: "⚡" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const isTrack = (id: string) => pathname.startsWith(`/learn/${id}`);
 
   return (
-    <header className="no-print sticky top-0 z-40 border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
+    <header className="no-print sticky top-0 z-40 border-b border-zinc-200 bg-paper/80 backdrop-blur dark:border-zinc-800 dark:bg-paper-dark/80">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="text-2xl" aria-hidden>🥋</span>
-          <span className="text-base font-semibold tracking-tight sm:text-lg">
-            Sakila SQL Dojo
-          </span>
+          <span className="text-xl" aria-hidden>🪜</span>
+          <span className="text-base font-semibold tracking-tight sm:text-lg">Code Ladder</span>
         </Link>
 
-        <nav className="hidden items-center gap-2 md:flex">
-          {links.map((l) => (
+        <nav className="hidden items-center gap-1 md:flex">
+          {TRACKS.map((t) => (
             <Link
-              key={l.href}
-              href={l.href}
-              className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-                isActive(l.href)
-                  ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
-                  : "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+              key={t.id}
+              href={`/learn/${t.id}`}
+              className={`track-${t.id} rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+                isTrack(t.id)
+                  ? "bg-accent-soft text-accent"
+                  : "text-zinc-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
               }`}
             >
-              {l.label}
+              <span className="mr-1" aria-hidden>{t.icon}</span>
+              {t.title}
             </Link>
           ))}
+          <Link
+            href="/add"
+            className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+              pathname === "/add"
+                ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
+                : "text-zinc-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+            }`}
+          >
+            Add
+          </Link>
           <ThemeToggle />
         </nav>
 
@@ -51,7 +61,7 @@ export default function Navbar() {
             type="button"
             aria-label="Toggle menu"
             onClick={() => setOpen((o) => !o)}
-            className="rounded-md p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+            className="rounded-md p-2 text-zinc-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               {open ? (
@@ -72,21 +82,29 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav className="border-t border-slate-200 px-4 py-2 md:hidden dark:border-slate-800">
-          {links.map((l) => (
+        <nav className="border-t border-zinc-200 px-4 py-2 md:hidden dark:border-zinc-800">
+          {TRACKS.map((t) => (
             <Link
-              key={l.href}
-              href={l.href}
+              key={t.id}
+              href={`/learn/${t.id}`}
               onClick={() => setOpen(false)}
-              className={`block rounded-md px-3 py-2 text-sm font-medium ${
-                isActive(l.href)
-                  ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
-                  : "text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+              className={`track-${t.id} block rounded-md px-3 py-2 text-sm font-medium ${
+                isTrack(t.id)
+                  ? "bg-accent-soft text-accent"
+                  : "text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
               }`}
             >
-              {l.label}
+              <span className="mr-1" aria-hidden>{t.icon}</span>
+              {t.title}
             </Link>
           ))}
+          <Link
+            href="/add"
+            onClick={() => setOpen(false)}
+            className="block rounded-md px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+          >
+            Add a question
+          </Link>
         </nav>
       )}
     </header>

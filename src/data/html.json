@@ -1,0 +1,1297 @@
+{
+  "id": "html",
+  "title": "HTML",
+  "tagline": "Structure web pages",
+  "description": "Learn to build the skeleton of every web page with modern HTML5 — from your first tags and headings to forms, tables, and accessible, semantic markup, with hints, explanations, and worked solutions.",
+  "icon": "📄",
+  "codeLang": "html",
+  "refsLabel": "Elements",
+  "roadmap": [
+    {
+      "id": "html-foundations",
+      "title": "First pages",
+      "blurb": "Build your very first web page. Learn the tags that hold everything together and the words that show on screen.",
+      "level": "beginner",
+      "topicIds": [
+        "html-basics",
+        "html-text"
+      ]
+    },
+    {
+      "id": "html-content",
+      "title": "Links, pictures & lists",
+      "blurb": "Connect pages with links, add images, and stack your content into neat lists.",
+      "level": "beginner",
+      "topicIds": [
+        "html-links"
+      ]
+    },
+    {
+      "id": "html-interactive",
+      "title": "Tables, forms & meaning",
+      "blurb": "Show data in tables, collect answers with forms, and label your page so everyone — including screen readers — understands it.",
+      "level": "intermediate",
+      "topicIds": [
+        "html-tables",
+        "html-forms",
+        "html-semantic"
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "id": "html-basics",
+      "title": "HTML Basics & Structure",
+      "description": "Learn what HTML is and how a page is built: the doctype, the html, head and body elements, tags, attributes, comments, and metadata.",
+      "icon": "🏗️",
+      "level": "beginner",
+      "questions": [
+        {
+          "id": "hb-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What does HTML stand for?",
+          "hint": "It is the language for marking up the structure of web pages.",
+          "options": [
+            "HyperText Markup Language",
+            "HighText Machine Language",
+            "Hyperlinks and Text Markup Language",
+            "Home Tool Markup Language"
+          ],
+          "answer": "A",
+          "explanation": "HTML stands for HyperText Markup Language, the standard markup language for documents displayed in a web browser.",
+          "tags": ["html"]
+        },
+        {
+          "id": "hb-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which declaration tells the browser the document is written in HTML5?",
+          "hint": "It is the very first line of a modern page and is short.",
+          "options": [
+            "<!DOCTYPE html5>",
+            "<!DOCTYPE html>",
+            "<doctype html>",
+            "<html version=\"5\">"
+          ],
+          "answer": "B",
+          "explanation": "The HTML5 doctype is simply <!DOCTYPE html>; it must be the first thing in the document so the browser uses standards mode.",
+          "tags": ["doctype"]
+        },
+        {
+          "id": "hb-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element contains the visible content of a page?",
+          "hint": "It is the sibling of <head> and the part the user actually sees.",
+          "options": [
+            "<head>",
+            "<meta>",
+            "<body>",
+            "<main>"
+          ],
+          "answer": "C",
+          "explanation": "The <body> element holds all the visible content such as text, images, and links, while <head> holds metadata.",
+          "tags": ["body", "head"]
+        },
+        {
+          "id": "hb-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What do we call the named values inside a tag, like href in <a href=\"...\">, that give extra information about an element?",
+          "hint": "They live in the opening tag and usually come in name=\"value\" pairs.",
+          "answer": "attributes",
+          "explanation": "Attributes provide additional information about elements and are written as name=\"value\" pairs inside the opening tag.",
+          "tags": ["attributes"]
+        },
+        {
+          "id": "hb-05",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element wraps the entire document and is the root of the HTML tree? Answer with just the tag name.",
+          "hint": "Everything except the doctype lives inside this one element.",
+          "answer": "html",
+          "explanation": "The <html> element is the root element; everything else (head and body) is nested inside it.",
+          "tags": ["html"]
+        },
+        {
+          "id": "hb-06",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Core concepts",
+          "question": "What is the standard syntax to begin an HTML comment? Give the opening sequence.",
+          "hint": "It starts with an angle bracket, exclamation mark and two dashes.",
+          "answer": "<!--",
+          "explanation": "HTML comments are written as <!-- comment -->; the browser ignores anything between the markers.",
+          "tags": ["comments"]
+        },
+        {
+          "id": "hb-07",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Metadata & head",
+          "question": "Which meta tag makes a page scale correctly on mobile devices?",
+          "hint": "It controls the viewport width and initial zoom.",
+          "options": [
+            "<meta charset=\"utf-8\">",
+            "<meta name=\"description\" content=\"...\">",
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+            "<meta http-equiv=\"refresh\" content=\"30\">"
+          ],
+          "answer": "C",
+          "explanation": "The viewport meta tag with width=device-width, initial-scale=1 tells the browser to match the screen width and not zoom out, which is essential for responsive design.",
+          "tags": ["meta", "viewport"]
+        },
+        {
+          "id": "hb-08",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Metadata & head",
+          "question": "Where does the text shown on the browser tab come from?",
+          "hint": "It is an element placed inside the <head>.",
+          "options": [
+            "<h1> in the body",
+            "<title> in the head",
+            "<header> at the top of the body",
+            "the name attribute on <html>"
+          ],
+          "answer": "B",
+          "explanation": "The <title> element, placed inside <head>, defines the document title shown in the browser tab and used by search engines and bookmarks.",
+          "tags": ["title", "head"]
+        },
+        {
+          "id": "hb-09",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Metadata & head",
+          "question": "Which meta attribute should be set to \"utf-8\" so the page can display characters from any language? Answer with just the attribute name.",
+          "hint": "It declares the document's character encoding.",
+          "answer": "charset",
+          "explanation": "<meta charset=\"utf-8\"> sets the character encoding to UTF-8, which can represent virtually every character and is the recommended default.",
+          "tags": ["meta", "charset"]
+        },
+        {
+          "id": "hb-10",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write the smallest complete, valid HTML5 page that has the title \"My Page\" and shows the heading \"Hello\" in the body.",
+          "hint": "Start with the doctype, then html, head (with charset and title) and body.",
+          "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>My Page</title>\n  </head>\n  <body>\n    <h1>Hello</h1>\n  </body>\n</html>",
+          "explanation": "A minimal HTML5 document needs the doctype, a root <html> element, a <head> with a title (and ideally charset), and a <body> with the visible content.",
+          "tags": ["doctype", "html", "head", "title", "body"]
+        },
+        {
+          "id": "hb-11",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write the contents of a <head> that sets UTF-8 encoding, a responsive viewport, the page title \"Shop\", and a meta description of \"Best deals online\".",
+          "hint": "You need four elements: charset meta, viewport meta, title, and description meta.",
+          "code": "<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Shop</title>\n  <meta name=\"description\" content=\"Best deals online\">\n</head>",
+          "explanation": "A well-formed head includes encoding, the responsive viewport meta, a descriptive title, and a description meta used by search engines for snippets.",
+          "tags": ["head", "meta", "viewport", "title"]
+        },
+        {
+          "id": "hb-12",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write an HTML comment that says \"Navigation starts here\" and is invisible to users.",
+          "hint": "Comments are wrapped in <!-- and -->.",
+          "code": "<!-- Navigation starts here -->",
+          "explanation": "Text between <!-- and --> is a comment; the browser ignores it, so it never appears on the rendered page.",
+          "tags": ["comments"]
+        },
+        {
+          "id": "hb-13",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "A developer writes <br></br> expecting a self-closing element. What is the issue?",
+          "hint": "Think about which elements have no content and need no closing tag.",
+          "options": [
+            "<br> is a void element and should not have a closing tag",
+            "<br> must always be lowercase or it breaks",
+            "Nothing is wrong; both tags are required",
+            "<br> needs a src attribute"
+          ],
+          "answer": "A",
+          "explanation": "<br> is a void (empty) element with no content, so it is written as <br> (or <br /> in XHTML); a closing </br> tag is invalid.",
+          "tags": ["br", "void-elements"]
+        },
+        {
+          "id": "hb-14",
+          "type": "single",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Which attribute should be added to the <html> tag to declare the page's primary language as English, helping screen readers and search engines? Answer with just the attribute name.",
+          "hint": "It is a global attribute set to a language code like \"en\".",
+          "answer": "lang",
+          "explanation": "Setting lang=\"en\" on the <html> element tells assistive technology and browsers the document's language, improving accessibility and correct pronunciation.",
+          "tags": ["html", "lang", "accessibility"]
+        },
+        {
+          "id": "hb-15",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "A page renders in browser \"quirks mode\" with odd box sizing. Which omission most likely caused this?",
+          "hint": "Quirks mode is triggered when one specific first line is missing.",
+          "options": [
+            "A missing <title> element",
+            "A missing <!DOCTYPE html> declaration",
+            "A missing charset meta tag",
+            "A missing lang attribute"
+          ],
+          "answer": "B",
+          "explanation": "Without the <!DOCTYPE html> declaration at the top, browsers fall back to quirks mode, emulating old non-standard layout behaviour.",
+          "tags": ["doctype", "quirks-mode"]
+        }
+      ]
+    },
+    {
+      "id": "html-text",
+      "title": "Text & Formatting",
+      "description": "Mark up text with headings, paragraphs, line breaks, emphasis, quotations, code, and special characters using semantic, modern tags.",
+      "icon": "✍️",
+      "level": "beginner",
+      "questions": [
+        {
+          "id": "ht-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element represents the most important top-level heading on a page?",
+          "hint": "Headings range from h1 (biggest) to h6 (smallest).",
+          "options": [
+            "<h6>",
+            "<head>",
+            "<h1>",
+            "<title>"
+          ],
+          "answer": "C",
+          "explanation": "<h1> is the highest-level heading and should describe the page's main topic; headings go down to <h6>.",
+          "tags": ["h1", "headings"]
+        },
+        {
+          "id": "ht-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element defines a paragraph of text?",
+          "hint": "It is a single short letter.",
+          "options": [
+            "<para>",
+            "<p>",
+            "<text>",
+            "<pg>"
+          ],
+          "answer": "B",
+          "explanation": "The <p> element represents a paragraph; browsers add space above and below it by default.",
+          "tags": ["p"]
+        },
+        {
+          "id": "ht-03",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which empty element inserts a single line break inside text? Answer with just the tag name.",
+          "hint": "It is a void element often used inside addresses or poems.",
+          "answer": "br",
+          "explanation": "<br> forces a line break without starting a new paragraph; it is a void element with no closing tag.",
+          "tags": ["br"]
+        },
+        {
+          "id": "ht-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element creates a horizontal thematic divider line between sections? Answer with just the tag name.",
+          "hint": "Two letters, a void element, often shown as a rule line.",
+          "answer": "hr",
+          "explanation": "<hr> represents a thematic break (a shift of topic) and is rendered as a horizontal rule by default.",
+          "tags": ["hr"]
+        },
+        {
+          "id": "ht-05",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Emphasis & semantics",
+          "question": "Which pair of elements is the semantically correct way to mark emphasised and strongly important text?",
+          "hint": "Prefer the semantic tags over the purely presentational ones.",
+          "options": [
+            "<i> and <b>",
+            "<em> and <strong>",
+            "<italic> and <bold>",
+            "<u> and <big>"
+          ],
+          "answer": "B",
+          "explanation": "<em> conveys stress emphasis and <strong> conveys strong importance; <i> and <b> are purely visual and carry no semantic meaning.",
+          "tags": ["em", "strong"]
+        },
+        {
+          "id": "ht-06",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Emphasis & semantics",
+          "question": "Which element should wrap a multi-line block quotation from another source?",
+          "hint": "It is a block-level quote element, not the short inline one.",
+          "options": [
+            "<quote>",
+            "<q>",
+            "<blockquote>",
+            "<cite>"
+          ],
+          "answer": "C",
+          "explanation": "<blockquote> marks a section quoted from another source; <q> is for short inline quotes and <cite> names a work's title.",
+          "tags": ["blockquote", "q", "cite"]
+        },
+        {
+          "id": "ht-07",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Emphasis & semantics",
+          "question": "Which element displays a snippet of computer code in a monospaced inline style? Answer with just the tag name.",
+          "hint": "Four letters; it means exactly what it shows.",
+          "answer": "code",
+          "explanation": "The <code> element marks up a fragment of computer code and is typically rendered in a monospace font.",
+          "tags": ["code"]
+        },
+        {
+          "id": "ht-08",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Emphasis & semantics",
+          "question": "Which character entity must you use to display a less-than sign as visible text instead of starting a tag?",
+          "hint": "It begins with an ampersand and ends with a semicolon.",
+          "answer": "&lt;",
+          "explanation": "Because < starts a tag, you write the entity &lt; to display a literal less-than sign; similarly &gt; gives the greater-than sign and &amp; gives the ampersand.",
+          "tags": ["entities"]
+        },
+        {
+          "id": "ht-09",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write markup for a section with a top-level heading \"About Us\" followed by a paragraph that reads \"We make great tools.\"",
+          "hint": "Use an h1 then a p.",
+          "code": "<h1>About Us</h1>\n<p>We make great tools.</p>",
+          "explanation": "Headings (<h1>) introduce content and paragraphs (<p>) hold the body text, giving the page a clear, accessible outline.",
+          "tags": ["h1", "p"]
+        },
+        {
+          "id": "ht-10",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a paragraph that says \"Save your work often\" where the word \"often\" is strongly important.",
+          "hint": "Wrap just the word often in <strong>.",
+          "code": "<p>Save your work <strong>often</strong>.</p>",
+          "explanation": "<strong> marks the word as having strong importance, and browsers render it bold while assistive tech may emphasise it.",
+          "tags": ["p", "strong"]
+        },
+        {
+          "id": "ht-11",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a preformatted block that preserves spacing and shows the two lines \"line one\" and an indented \"line two\" exactly as typed.",
+          "hint": "Use the <pre> element, which keeps whitespace and line breaks.",
+          "code": "<pre>line one\n    line two</pre>",
+          "explanation": "The <pre> element preserves whitespace and newlines exactly as written, which is ideal for ASCII art or formatted code.",
+          "tags": ["pre"]
+        },
+        {
+          "id": "ht-12",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a sentence with the chemical formula H2O where the 2 is shown as a subscript.",
+          "hint": "Use the <sub> element around the 2.",
+          "code": "<p>Water is H<sub>2</sub>O.</p>",
+          "explanation": "<sub> renders text as subscript (lower and smaller); its counterpart <sup> renders superscript, useful for exponents and footnotes.",
+          "tags": ["sub", "sup"]
+        },
+        {
+          "id": "ht-13",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "A designer skips from <h1> straight to <h4> to make text smaller. Why is this a problem?",
+          "hint": "Heading levels describe document structure, not font size.",
+          "options": [
+            "Heading levels are about visual size only, so it is fine",
+            "It breaks the document outline and harms accessibility; size should be set with CSS",
+            "<h4> cannot appear without an <h2> and <h3> being self-closed",
+            "Browsers will refuse to render the page"
+          ],
+          "answer": "B",
+          "explanation": "Heading levels convey hierarchy for assistive technology and SEO; skipping levels for visual size confuses the outline — use CSS for sizing instead.",
+          "tags": ["headings", "accessibility"]
+        },
+        {
+          "id": "ht-14",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "You want to show that text was deleted and replacement text inserted, with semantic meaning. Which elements fit best?",
+          "hint": "There are dedicated edit-tracking elements in HTML.",
+          "options": [
+            "<strike> and <u>",
+            "<del> and <ins>",
+            "<s> and <em>",
+            "<small> and <mark>"
+          ],
+          "answer": "B",
+          "explanation": "<del> marks removed content and <ins> marks inserted content, carrying edit semantics; <strike> is deprecated and <s> only means no-longer-accurate.",
+          "tags": ["del", "ins"]
+        },
+        {
+          "id": "ht-15",
+          "type": "single",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Which element highlights text to mark it as relevant or as a search hit, typically shown with a yellow background? Answer with just the tag name.",
+          "hint": "It means to highlight; four letters.",
+          "answer": "mark",
+          "explanation": "The <mark> element represents text highlighted for reference or relevance, such as matched search terms, and is styled with a highlight by default.",
+          "tags": ["mark"]
+        }
+      ]
+    },
+    {
+      "id": "html-links",
+      "title": "Links, Images & Lists",
+      "description": "Connect pages with anchors, embed images responsibly, and organise content with ordered, unordered, and description lists.",
+      "icon": "🔗",
+      "level": "beginner",
+      "questions": [
+        {
+          "id": "hl-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element creates a hyperlink, and which attribute holds the destination URL?",
+          "hint": "The anchor element plus the hypertext reference attribute.",
+          "options": [
+            "<link> with the to attribute",
+            "<a> with the href attribute",
+            "<url> with the src attribute",
+            "<a> with the src attribute"
+          ],
+          "answer": "B",
+          "explanation": "The <a> (anchor) element creates a hyperlink, and its href attribute specifies the destination URL.",
+          "tags": ["a", "href"]
+        },
+        {
+          "id": "hl-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which attribute on <img> provides alternative text for screen readers and broken images?",
+          "hint": "It describes the image when it cannot be seen.",
+          "options": [
+            "title",
+            "src",
+            "alt",
+            "caption"
+          ],
+          "answer": "C",
+          "explanation": "The alt attribute gives a text alternative for an image, read aloud by screen readers and shown if the image fails to load.",
+          "tags": ["img", "alt"]
+        },
+        {
+          "id": "hl-03",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which attribute on <img> points to the image file's location? Answer with just the attribute name.",
+          "hint": "Same attribute name used by scripts and media to give a source.",
+          "answer": "src",
+          "explanation": "The src (source) attribute holds the path or URL of the image to display.",
+          "tags": ["img", "src"]
+        },
+        {
+          "id": "hl-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element creates an ordered (numbered) list? Answer with just the tag name.",
+          "hint": "Two letters: ordered list.",
+          "answer": "ol",
+          "explanation": "<ol> creates an ordered list whose items (<li>) are automatically numbered; <ul> creates an unordered (bulleted) list.",
+          "tags": ["ol", "li"]
+        },
+        {
+          "id": "hl-05",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which value of the target attribute opens a link in a new browser tab?",
+          "hint": "It refers to a blank browsing context.",
+          "options": [
+            "target=\"_self\"",
+            "target=\"_new\"",
+            "target=\"_blank\"",
+            "target=\"_top\""
+          ],
+          "answer": "C",
+          "explanation": "target=\"_blank\" opens the link in a new tab or window; pair it with rel=\"noopener\" for security.",
+          "tags": ["a", "target"]
+        },
+        {
+          "id": "hl-06",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does an href value of \"#contact\" do?",
+          "hint": "The hash refers to an element's id on the same page.",
+          "options": [
+            "Downloads a file named contact",
+            "Jumps to the element with id=\"contact\" on the page",
+            "Opens the contact email client",
+            "Reloads the page"
+          ],
+          "answer": "B",
+          "explanation": "An href starting with # is a fragment link that scrolls to the element whose id matches, e.g. id=\"contact\".",
+          "tags": ["a", "href", "id"]
+        },
+        {
+          "id": "hl-07",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which element pairs with <ol> or <ul> to represent each individual list item? Answer with just the tag name.",
+          "hint": "Two letters: list item.",
+          "answer": "li",
+          "explanation": "Each entry in an ordered or unordered list is wrapped in an <li> (list item) element.",
+          "tags": ["li", "ul", "ol"]
+        },
+        {
+          "id": "hl-08",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "In a description list, which element holds the term being described? Answer with just the tag name.",
+          "hint": "Description term — two letters.",
+          "answer": "dt",
+          "explanation": "A description list <dl> pairs a description term <dt> with its description <dd>.",
+          "tags": ["dl", "dt", "dd"]
+        },
+        {
+          "id": "hl-09",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write a link with the text \"Visit Example\" that goes to https://example.com.",
+          "hint": "Use <a> with href and put the text between the tags.",
+          "code": "<a href=\"https://example.com\">Visit Example</a>",
+          "explanation": "The anchor's href sets the destination and the text between the tags is the clickable label.",
+          "tags": ["a", "href"]
+        },
+        {
+          "id": "hl-10",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Insert an image from \"logo.png\" with the alternative text \"Company logo\".",
+          "hint": "Use the void <img> element with src and alt.",
+          "code": "<img src=\"logo.png\" alt=\"Company logo\">",
+          "explanation": "<img> is a void element; src gives the file and alt provides accessible alternative text.",
+          "tags": ["img", "src", "alt"]
+        },
+        {
+          "id": "hl-11",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write an unordered list of three fruits: Apple, Banana, Cherry.",
+          "hint": "Use <ul> with three <li> items.",
+          "code": "<ul>\n  <li>Apple</li>\n  <li>Banana</li>\n  <li>Cherry</li>\n</ul>",
+          "explanation": "An unordered list <ul> displays each <li> with a bullet; the order of items is not meaningful.",
+          "tags": ["ul", "li"]
+        },
+        {
+          "id": "hl-12",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write an ordered list giving the steps: Mix, Bake, Serve.",
+          "hint": "Use <ol> so the steps are numbered in sequence.",
+          "code": "<ol>\n  <li>Mix</li>\n  <li>Bake</li>\n  <li>Serve</li>\n</ol>",
+          "explanation": "<ol> numbers each <li> automatically, which is correct when sequence matters, as in recipe steps.",
+          "tags": ["ol", "li"]
+        },
+        {
+          "id": "hl-13",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Make an image at \"hero.jpg\" (alt \"Mountain view\") into a clickable link that opens https://photos.example.com in a new tab safely.",
+          "hint": "Wrap the <img> in an <a> using target=\"_blank\" and rel=\"noopener\".",
+          "code": "<a href=\"https://photos.example.com\" target=\"_blank\" rel=\"noopener\">\n  <img src=\"hero.jpg\" alt=\"Mountain view\">\n</a>",
+          "explanation": "Placing an <img> inside an <a> makes the image a link; target=\"_blank\" opens a new tab and rel=\"noopener\" prevents the new page from accessing window.opener.",
+          "tags": ["a", "img", "target", "rel"]
+        },
+        {
+          "id": "hl-14",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "An image is purely decorative and adds no information. What is the recommended alt value?",
+          "hint": "Screen readers should skip purely decorative images.",
+          "options": [
+            "alt=\"decorative image\"",
+            "Leave out the alt attribute entirely",
+            "alt=\"\" (empty)",
+            "alt=\"image\""
+          ],
+          "answer": "C",
+          "explanation": "An empty alt=\"\" tells screen readers to ignore a decorative image; omitting alt entirely is invalid and may cause the filename to be read instead.",
+          "tags": ["img", "alt", "accessibility"]
+        },
+        {
+          "id": "hl-15",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Write a description list defining HTML as \"Markup for structure\" and CSS as \"Styling for pages\".",
+          "hint": "Use <dl> with <dt> for each term and <dd> for each definition.",
+          "code": "<dl>\n  <dt>HTML</dt>\n  <dd>Markup for structure</dd>\n  <dt>CSS</dt>\n  <dd>Styling for pages</dd>\n</dl>",
+          "explanation": "A description list <dl> groups term/description pairs, using <dt> for the term and <dd> for its description.",
+          "tags": ["dl", "dt", "dd"]
+        }
+      ]
+    },
+    {
+      "id": "html-tables",
+      "title": "Tables",
+      "description": "Build accessible data tables with rows, header and data cells, captions, column and row spans, and the thead, tbody and tfoot sections.",
+      "icon": "📊",
+      "level": "intermediate",
+      "questions": [
+        {
+          "id": "htb-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element defines a table row?",
+          "hint": "Table row — abbreviated to two letters.",
+          "options": [
+            "<td>",
+            "<tr>",
+            "<th>",
+            "<row>"
+          ],
+          "answer": "B",
+          "explanation": "<tr> defines a table row, inside which you place header cells (<th>) or data cells (<td>).",
+          "tags": ["tr", "table"]
+        },
+        {
+          "id": "htb-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element represents a header cell, typically bold and centered?",
+          "hint": "Table header cell.",
+          "options": [
+            "<td>",
+            "<thead>",
+            "<th>",
+            "<header>"
+          ],
+          "answer": "C",
+          "explanation": "<th> marks a header cell that labels a column or row; browsers render it bold and centered by default.",
+          "tags": ["th"]
+        },
+        {
+          "id": "htb-03",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element holds a standard data cell inside a table row? Answer with just the tag name.",
+          "hint": "Table data — two letters.",
+          "answer": "td",
+          "explanation": "<td> defines a standard data cell within a <tr> row.",
+          "tags": ["td"]
+        },
+        {
+          "id": "htb-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element provides a title or caption for an entire table? Answer with just the tag name.",
+          "hint": "It comes right after the opening <table> tag.",
+          "answer": "caption",
+          "explanation": "<caption>, placed as the first child of <table>, gives the table an accessible title describing its contents.",
+          "tags": ["caption", "table"]
+        },
+        {
+          "id": "htb-05",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Structure & spanning",
+          "question": "Which attribute makes a single cell stretch across multiple columns?",
+          "hint": "It spans columns.",
+          "options": [
+            "rowspan",
+            "colspan",
+            "span",
+            "width"
+          ],
+          "answer": "B",
+          "explanation": "colspan=\"n\" makes a cell occupy n columns; rowspan does the same vertically across rows.",
+          "tags": ["colspan", "td"]
+        },
+        {
+          "id": "htb-06",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Structure & spanning",
+          "question": "Which three sectioning elements group a table's header, body, and footer rows?",
+          "hint": "They all start with the letter t.",
+          "options": [
+            "<top>, <middle>, <bottom>",
+            "<header>, <body>, <footer>",
+            "<thead>, <tbody>, <tfoot>",
+            "<thd>, <tbd>, <tft>"
+          ],
+          "answer": "C",
+          "explanation": "<thead>, <tbody>, and <tfoot> group the header, body, and footer rows, improving structure, accessibility, and printing.",
+          "tags": ["thead", "tbody", "tfoot"]
+        },
+        {
+          "id": "htb-07",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Structure & spanning",
+          "question": "Which attribute would you set to \"2\" so a header cell stretches down over two rows? Answer with just the attribute name.",
+          "hint": "It spans rows rather than columns.",
+          "answer": "rowspan",
+          "explanation": "rowspan=\"2\" makes a cell occupy two rows vertically, merging them in that column.",
+          "tags": ["rowspan"]
+        },
+        {
+          "id": "htb-08",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Structure & spanning",
+          "question": "On a <th>, which attribute set to \"col\" or \"row\" tells assistive tech which cells the header labels? Answer with just the attribute name.",
+          "hint": "It defines the header's scope.",
+          "answer": "scope",
+          "explanation": "The scope attribute (scope=\"col\" or scope=\"row\") associates a header cell with its column or row, greatly improving screen-reader navigation.",
+          "tags": ["th", "scope", "accessibility"]
+        },
+        {
+          "id": "htb-09",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write a simple table with a header row \"Name\" and \"Age\", and one data row \"Ann\", \"30\".",
+          "hint": "Use <table>, a <tr> with <th> cells, and a <tr> with <td> cells.",
+          "code": "<table>\n  <tr>\n    <th>Name</th>\n    <th>Age</th>\n  </tr>\n  <tr>\n    <td>Ann</td>\n    <td>30</td>\n  </tr>\n</table>",
+          "explanation": "A table is built from rows (<tr>) containing header cells (<th>) and data cells (<td>).",
+          "tags": ["table", "tr", "th", "td"]
+        },
+        {
+          "id": "htb-10",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a table with a caption \"Sales\", a thead with headers \"Q1\" and \"Q2\", and a tbody row \"100\", \"150\".",
+          "hint": "Put <caption> first, then <thead> and <tbody> sections.",
+          "code": "<table>\n  <caption>Sales</caption>\n  <thead>\n    <tr>\n      <th>Q1</th>\n      <th>Q2</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>100</td>\n      <td>150</td>\n    </tr>\n  </tbody>\n</table>",
+          "explanation": "A <caption> titles the table, <thead> groups the header row, and <tbody> groups the data rows for clear structure and accessibility.",
+          "tags": ["table", "caption", "thead", "tbody"]
+        },
+        {
+          "id": "htb-11",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a table row where a single header cell \"Totals\" spans across two columns.",
+          "hint": "Use colspan=\"2\" on the <th>.",
+          "code": "<tr>\n  <th colspan=\"2\">Totals</th>\n</tr>",
+          "explanation": "colspan=\"2\" merges the cell so it covers two columns, which is useful for grouped headers.",
+          "tags": ["th", "colspan"]
+        },
+        {
+          "id": "htb-12",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Add scope attributes to two column header cells \"Item\" and \"Price\" so screen readers associate them with their columns.",
+          "hint": "Each <th> should have scope=\"col\".",
+          "code": "<tr>\n  <th scope=\"col\">Item</th>\n  <th scope=\"col\">Price</th>\n</tr>",
+          "explanation": "scope=\"col\" ties each header to the cells beneath it in the same column, making the table navigable for assistive technology.",
+          "tags": ["th", "scope", "accessibility"]
+        },
+        {
+          "id": "htb-13",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "A developer uses a table to lay out a page's columns of unrelated content. Why is this discouraged in modern HTML?",
+          "hint": "Tables carry meaning about tabular data.",
+          "options": [
+            "Tables are slower to download than divs",
+            "Tables are only for tabular data; using them for layout harms semantics and accessibility — use CSS instead",
+            "Tables cannot contain images",
+            "Tables are not supported on mobile devices"
+          ],
+          "answer": "B",
+          "explanation": "Tables semantically represent rows and columns of data; using them for visual layout confuses screen readers and breaks responsiveness. Layout should be done with CSS (flexbox/grid).",
+          "tags": ["table", "accessibility", "layout"]
+        },
+        {
+          "id": "htb-14",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "In a table, make the first data cell \"N/A\" span two rows, then show its sibling cell \"East\" in the same row.",
+          "hint": "Apply rowspan=\"2\" to the first <td> and add the sibling cell after it.",
+          "code": "<tr>\n  <td rowspan=\"2\">N/A</td>\n  <td>East</td>\n</tr>",
+          "explanation": "rowspan=\"2\" makes the first cell occupy this row and the next, so the following <tr> only needs one cell to fill the remaining column.",
+          "tags": ["td", "rowspan"]
+        },
+        {
+          "id": "htb-15",
+          "type": "single",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Which table section element is intended for summary or total rows and may be rendered at the bottom even if written before the body? Answer with just the tag name.",
+          "hint": "Table footer.",
+          "answer": "tfoot",
+          "explanation": "<tfoot> groups footer rows such as totals; browsers display it at the bottom of the table.",
+          "tags": ["tfoot"]
+        }
+      ]
+    },
+    {
+      "id": "html-forms",
+      "title": "Forms & Inputs",
+      "description": "Collect user data with forms: text and specialised inputs, labels, checkboxes, radios, selects, textareas, buttons, and built-in validation.",
+      "icon": "📝",
+      "level": "intermediate",
+      "questions": [
+        {
+          "id": "hf-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element wraps a group of controls that are submitted together?",
+          "hint": "It is named after the concept it represents.",
+          "options": [
+            "<fieldset>",
+            "<form>",
+            "<input>",
+            "<submit>"
+          ],
+          "answer": "B",
+          "explanation": "The <form> element groups input controls and defines how and where their data is submitted via the action and method attributes.",
+          "tags": ["form"]
+        },
+        {
+          "id": "hf-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which attribute associates a <label> with a specific input?",
+          "hint": "It refers to the input's id.",
+          "options": [
+            "name",
+            "id",
+            "for",
+            "ref"
+          ],
+          "answer": "C",
+          "explanation": "A label's for attribute must match the input's id, linking them so clicking the label focuses the input and screen readers announce it.",
+          "tags": ["label", "for"]
+        },
+        {
+          "id": "hf-03",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which attribute on an <input> sends a value to the server under a given key? Answer with just the attribute name.",
+          "hint": "It is the key part of the submitted key=value pair.",
+          "answer": "name",
+          "explanation": "The name attribute becomes the key in the submitted form data; inputs without a name are not submitted.",
+          "tags": ["input", "name"]
+        },
+        {
+          "id": "hf-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which input type masks the characters the user types? Answer with just the type value.",
+          "hint": "It is used for secret credentials.",
+          "answer": "password",
+          "explanation": "<input type=\"password\"> hides typed characters (usually as dots) so passwords are not shown on screen.",
+          "tags": ["input", "password"]
+        },
+        {
+          "id": "hf-05",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Controls & types",
+          "question": "Which input type lets the user pick exactly one option from a mutually exclusive set sharing the same name?",
+          "hint": "Several of them, only one can be chosen.",
+          "options": [
+            "checkbox",
+            "radio",
+            "select",
+            "option"
+          ],
+          "answer": "B",
+          "explanation": "Radio buttons (type=\"radio\") that share the same name form a group from which only one can be selected at a time.",
+          "tags": ["input", "radio"]
+        },
+        {
+          "id": "hf-06",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Controls & types",
+          "question": "Which element creates a multi-line text box?",
+          "hint": "It is not an <input>; it is its own element.",
+          "options": [
+            "<input type=\"text\" multiline>",
+            "<textarea>",
+            "<textbox>",
+            "<input type=\"multiline\">"
+          ],
+          "answer": "B",
+          "explanation": "<textarea> is a dedicated element for multi-line text input; its size is set with the rows and cols attributes or CSS.",
+          "tags": ["textarea"]
+        },
+        {
+          "id": "hf-07",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Controls & types",
+          "question": "Which boolean attribute on an input prevents the form from submitting until the field is filled in? Answer with just the attribute name.",
+          "hint": "It marks the field as mandatory.",
+          "answer": "required",
+          "explanation": "The required boolean attribute triggers built-in validation, blocking submission until the field has a value.",
+          "tags": ["input", "required", "validation"]
+        },
+        {
+          "id": "hf-08",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Controls & types",
+          "question": "Which attribute shows faint sample text inside an empty input as a hint? Answer with just the attribute name.",
+          "hint": "It is a temporary hint that disappears when typing.",
+          "answer": "placeholder",
+          "explanation": "The placeholder attribute shows hint text inside an empty field; it is not a substitute for a real <label>.",
+          "tags": ["input", "placeholder"]
+        },
+        {
+          "id": "hf-09",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write a labelled text input for a username, linking the label and input correctly.",
+          "hint": "Use <label for> matching the input's id.",
+          "code": "<label for=\"username\">Username</label>\n<input type=\"text\" id=\"username\" name=\"username\">",
+          "explanation": "Matching the label's for to the input's id creates an accessible association so clicking the label focuses the field.",
+          "tags": ["label", "input", "for", "id"]
+        },
+        {
+          "id": "hf-10",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a form that posts to \"/login\" containing an email field and a submit button.",
+          "hint": "Set method=\"post\" and action=\"/login\"; use input type=\"email\" and a submit button.",
+          "code": "<form action=\"/login\" method=\"post\">\n  <label for=\"email\">Email</label>\n  <input type=\"email\" id=\"email\" name=\"email\" required>\n  <button type=\"submit\">Log in</button>\n</form>",
+          "explanation": "The form's action and method define where and how data is sent; type=\"email\" enables email validation and the submit button triggers submission.",
+          "tags": ["form", "input", "email", "button"]
+        },
+        {
+          "id": "hf-11",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a dropdown select labelled \"Country\" with options United States and Canada.",
+          "hint": "Use <select> with <option> children, each with a value.",
+          "code": "<label for=\"country\">Country</label>\n<select id=\"country\" name=\"country\">\n  <option value=\"us\">United States</option>\n  <option value=\"ca\">Canada</option>\n</select>",
+          "explanation": "<select> creates a dropdown; each <option> has a value sent on submit and visible text shown to the user.",
+          "tags": ["select", "option", "label"]
+        },
+        {
+          "id": "hf-12",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a radio button group named \"plan\" offering \"Free\" and \"Pro\", each with a label.",
+          "hint": "Both inputs share name=\"plan\" but have different ids and values.",
+          "code": "<input type=\"radio\" id=\"free\" name=\"plan\" value=\"free\">\n<label for=\"free\">Free</label>\n<input type=\"radio\" id=\"pro\" name=\"plan\" value=\"pro\">\n<label for=\"pro\">Pro</label>",
+          "explanation": "Sharing the same name groups the radios so only one can be selected; distinct ids let each pair with its own label.",
+          "tags": ["input", "radio", "label", "name"]
+        },
+        {
+          "id": "hf-13",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "You need numeric input restricted to 1-10. Which combination best uses built-in validation?",
+          "hint": "Use a number input with min and max.",
+          "options": [
+            "<input type=\"text\" pattern=\"1-10\">",
+            "<input type=\"number\" min=\"1\" max=\"10\">",
+            "<input type=\"range\" required>",
+            "<input type=\"tel\" maxlength=\"2\">"
+          ],
+          "answer": "B",
+          "explanation": "type=\"number\" with min=\"1\" and max=\"10\" provides numeric input plus automatic range validation and stepper controls.",
+          "tags": ["input", "number", "validation"]
+        },
+        {
+          "id": "hf-14",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Group related shipping fields under a visible legend \"Shipping address\" using the proper grouping elements, containing one text input for street.",
+          "hint": "Use <fieldset> with a <legend> wrapping the labelled input.",
+          "code": "<fieldset>\n  <legend>Shipping address</legend>\n  <label for=\"street\">Street</label>\n  <input type=\"text\" id=\"street\" name=\"street\">\n</fieldset>",
+          "explanation": "<fieldset> groups related controls and <legend> gives the group an accessible caption, helping users understand the form's structure.",
+          "tags": ["fieldset", "legend", "label", "input"]
+        },
+        {
+          "id": "hf-15",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "A placeholder is being used as the only label for an input. Why is this an accessibility problem?",
+          "hint": "Think about what happens once the user starts typing.",
+          "options": [
+            "Placeholders cannot contain spaces",
+            "The placeholder disappears on input and is not reliably announced as a label by assistive tech, so use a real <label>",
+            "Placeholders are not supported in HTML5",
+            "Placeholders make the field read-only"
+          ],
+          "answer": "B",
+          "explanation": "Placeholder text vanishes when the user types and is not a dependable accessible name; every control should have an associated <label>.",
+          "tags": ["input", "placeholder", "label", "accessibility"]
+        }
+      ]
+    },
+    {
+      "id": "html-semantic",
+      "title": "Semantic HTML & Accessibility",
+      "description": "Use meaningful structural elements and accessibility features — landmarks, figures, ARIA, alt text and tab order — to build inclusive pages.",
+      "icon": "♿",
+      "level": "intermediate",
+      "questions": [
+        {
+          "id": "hs-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element represents the main, unique content of a document, and should appear only once?",
+          "hint": "It is named after exactly that idea.",
+          "options": [
+            "<section>",
+            "<main>",
+            "<article>",
+            "<div>"
+          ],
+          "answer": "B",
+          "explanation": "<main> wraps the dominant content of the page and should be used only once per document, giving screen readers a key landmark.",
+          "tags": ["main", "semantic"]
+        },
+        {
+          "id": "hs-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element best represents the site's primary navigation links?",
+          "hint": "Short word for navigation.",
+          "options": [
+            "<menu>",
+            "<links>",
+            "<nav>",
+            "<aside>"
+          ],
+          "answer": "C",
+          "explanation": "<nav> marks a block of navigation links, a landmark that assistive technology can jump to directly.",
+          "tags": ["nav", "semantic"]
+        },
+        {
+          "id": "hs-03",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which semantic element represents a self-contained, independently distributable piece of content like a blog post? Answer with just the tag name.",
+          "hint": "Think of a news or blog item.",
+          "answer": "article",
+          "explanation": "<article> represents a complete, self-contained composition (such as a blog post or news story) that could stand on its own.",
+          "tags": ["article", "semantic"]
+        },
+        {
+          "id": "hs-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which element represents tangentially related content such as a sidebar or pull quote? Answer with just the tag name.",
+          "hint": "Five letters; content set to the side.",
+          "answer": "aside",
+          "explanation": "<aside> marks content indirectly related to the main content, like a sidebar, callout, or set of related links.",
+          "tags": ["aside", "semantic"]
+        },
+        {
+          "id": "hs-05",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Landmarks & structure",
+          "question": "What is the key difference between <section> and <div>?",
+          "hint": "One carries meaning about a thematic grouping.",
+          "options": [
+            "There is no difference; they are interchangeable",
+            "<section> is a thematic grouping with semantic meaning (usually with a heading), while <div> is a generic, meaningless container",
+            "<div> can only contain text",
+            "<section> cannot be styled with CSS"
+          ],
+          "answer": "B",
+          "explanation": "<section> denotes a thematic group of content, typically with a heading, whereas <div> is a generic container with no semantic meaning, used mainly for styling.",
+          "tags": ["section", "div", "semantic"]
+        },
+        {
+          "id": "hs-06",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Landmarks & structure",
+          "question": "Which pair of elements wraps an image with its associated caption?",
+          "hint": "One groups the media, the other captions it.",
+          "options": [
+            "<picture> and <caption>",
+            "<figure> and <figcaption>",
+            "<media> and <label>",
+            "<img> and <alt>"
+          ],
+          "answer": "B",
+          "explanation": "<figure> groups self-contained media and <figcaption> provides its caption, associating the description with the content semantically.",
+          "tags": ["figure", "figcaption"]
+        },
+        {
+          "id": "hs-07",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Landmarks & structure",
+          "question": "Which element typically holds introductory content or branding and navigation at the top of a page or section? Answer with just the tag name.",
+          "hint": "It sits at the top; do not confuse it with <head>.",
+          "answer": "header",
+          "explanation": "<header> contains introductory content such as a logo, site title, or section heading, and can appear at page or section level.",
+          "tags": ["header", "semantic"]
+        },
+        {
+          "id": "hs-08",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Landmarks & structure",
+          "question": "Which ARIA attribute gives an interactive element an accessible name when no visible text label exists? Answer with the full attribute name.",
+          "hint": "It is an aria attribute that supplies a label string.",
+          "answer": "aria-label",
+          "explanation": "aria-label provides an accessible name for an element (e.g. an icon-only button) that has no visible text for screen readers to announce.",
+          "tags": ["aria-label", "accessibility"]
+        },
+        {
+          "id": "hs-09",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a semantic page skeleton with a header, a nav, a main, and a footer (each containing placeholder text).",
+          "hint": "Use the landmark elements directly inside the body.",
+          "code": "<body>\n  <header>Site title</header>\n  <nav>Menu</nav>\n  <main>Page content</main>\n  <footer>Copyright</footer>\n</body>",
+          "explanation": "Using header, nav, main, and footer creates clear landmarks that let assistive technology and search engines understand the page structure.",
+          "tags": ["header", "nav", "main", "footer"]
+        },
+        {
+          "id": "hs-10",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a figure containing an image \"chart.png\" (alt \"Sales chart\") with the caption \"Quarterly sales\".",
+          "hint": "Wrap the <img> and a <figcaption> in a <figure>.",
+          "code": "<figure>\n  <img src=\"chart.png\" alt=\"Sales chart\">\n  <figcaption>Quarterly sales</figcaption>\n</figure>",
+          "explanation": "<figure> groups the image with its <figcaption>, semantically tying the caption to the visual it describes.",
+          "tags": ["figure", "figcaption", "img"]
+        },
+        {
+          "id": "hs-11",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write an icon-only close button (containing a × character) that has an accessible name \"Close\".",
+          "hint": "Use aria-label to name the button for screen readers.",
+          "code": "<button type=\"button\" aria-label=\"Close\">&times;</button>",
+          "explanation": "Since the × glyph is not meaningful to screen readers, aria-label=\"Close\" supplies a clear accessible name for the button.",
+          "tags": ["button", "aria-label", "accessibility"]
+        },
+        {
+          "id": "hs-12",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write a self-contained blog post using the correct semantic element, with a heading \"My Trip\" and a paragraph \"It was fun.\"",
+          "hint": "Use <article> wrapping an <h2> and a <p>.",
+          "code": "<article>\n  <h2>My Trip</h2>\n  <p>It was fun.</p>\n</article>",
+          "explanation": "<article> marks the post as an independent, self-contained unit of content with its own heading and body.",
+          "tags": ["article", "h2", "p"]
+        },
+        {
+          "id": "hs-13",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "A page uses clickable <div> elements with onclick handlers as buttons. What accessibility problem does this cause?",
+          "hint": "Native buttons come with behaviour for free.",
+          "options": [
+            "None; a div with onclick behaves exactly like a button",
+            "It is not keyboard focusable or operable and is not announced as a button, so a real <button> should be used",
+            "Divs cannot have click handlers at all",
+            "It makes the page load slower"
+          ],
+          "answer": "B",
+          "explanation": "A plain <div> is not focusable, cannot be activated by keyboard, and is not exposed as a button to assistive tech; using a native <button> provides all of this automatically.",
+          "tags": ["button", "div", "accessibility"]
+        },
+        {
+          "id": "hs-14",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Which tabindex value adds a normally non-interactive element to the natural tab order without disrupting normal tab flow?",
+          "hint": "Positive values reorder the tab sequence and are discouraged.",
+          "options": [
+            "tabindex=\"1\"",
+            "tabindex=\"-1\"",
+            "tabindex=\"0\"",
+            "tabindex=\"99\""
+          ],
+          "answer": "C",
+          "explanation": "tabindex=\"0\" inserts the element into the natural tab order at its DOM position; positive values create confusing custom orders and tabindex=\"-1\" makes an element focusable only via script.",
+          "tags": ["tabindex", "accessibility"]
+        },
+        {
+          "id": "hs-15",
+          "type": "single",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Which ARIA attribute set to \"true\" hides a purely decorative element from the accessibility tree? Give the full attribute name.",
+          "hint": "It hides content from assistive technology only.",
+          "answer": "aria-hidden",
+          "explanation": "aria-hidden=\"true\" removes an element (and its children) from the accessibility tree, useful for decorative icons that would otherwise add noise for screen-reader users.",
+          "tags": ["aria-hidden", "accessibility"]
+        }
+      ]
+    }
+  ]
+}

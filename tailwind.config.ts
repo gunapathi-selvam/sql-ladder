@@ -9,18 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        mcq: {
-          DEFAULT: "#3b82f6",
-          bg: "rgba(59,130,246,0.12)",
-        },
-        single: {
-          DEFAULT: "#10b981",
-          bg: "rgba(16,185,129,0.12)",
-        },
-        code: {
-          DEFAULT: "#a855f7",
-          bg: "rgba(168,85,247,0.12)",
-        },
+        // Elegant neutrals
+        paper: "#faf9f7", // warm light background
+        "paper-dark": "#0c0c0e", // near-black, low saturation
+        ink: "#27272a", // zinc-800 text
+        "ink-dark": "#e4e4e7", // zinc-200 text
       },
       fontFamily: {
         mono: [

@@ -1,14 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { highlightSQL } from "@/lib/highlight";
+import { highlight, type CodeLang } from "@/lib/highlight";
 
-export default function CodeBlock({ sql }: { sql: string }) {
+export default function CodeBlock({
+  code,
+  lang = "sql",
+}: {
+  code: string;
+  lang?: CodeLang;
+}) {
   const [copied, setCopied] = useState(false);
 
   const onCopy = async () => {
     try {
-      await navigator.clipboard.writeText(sql);
+      await navigator.clipboard.writeText(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {
@@ -19,18 +25,16 @@ export default function CodeBlock({ sql }: { sql: string }) {
   return (
     <div className="relative">
       <pre
-        className="code-scroll overflow-x-auto rounded-lg border border-slate-800 bg-slate-900 p-4 font-mono text-sm leading-relaxed text-slate-100 print:border print:bg-white print:text-black"
-        aria-label="SQL code"
+        className="code-scroll overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-900 p-4 font-mono text-sm leading-relaxed text-zinc-100 print:border print:bg-white print:text-black"
+        aria-label="Code solution"
       >
-        <code
-          dangerouslySetInnerHTML={{ __html: highlightSQL(sql) }}
-        />
+        <code dangerouslySetInnerHTML={{ __html: highlight(code, lang) }} />
       </pre>
       <button
         type="button"
         onClick={onCopy}
-        className="no-print absolute right-2 top-2 rounded-md border border-slate-700 bg-slate-800/80 px-2 py-1 text-xs font-medium text-slate-200 backdrop-blur hover:bg-slate-700"
-        aria-label="Copy SQL"
+        className="no-print absolute right-2 top-2 rounded-md border border-zinc-700 bg-zinc-800/80 px-2 py-1 text-xs font-medium text-zinc-200 backdrop-blur hover:bg-zinc-700"
+        aria-label="Copy code"
       >
         {copied ? "Copied!" : "Copy"}
       </button>

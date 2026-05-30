@@ -1,0 +1,1159 @@
+{
+  "id": "js",
+  "title": "JavaScript",
+  "tagline": "Make pages interactive",
+  "description": "JavaScript is the language that brings web pages to life, letting you respond to clicks, change content, and build dynamic apps. Learn it step by step from variables to async code.",
+  "icon": "⚡",
+  "codeLang": "javascript",
+  "refsLabel": "APIs",
+  "roadmap": [
+    {
+      "id": "js-foundations",
+      "title": "Foundations",
+      "blurb": "Start here! Learn how to store data, make decisions, and repeat actions.",
+      "level": "beginner",
+      "topicIds": ["js-vars", "js-operators", "js-functions"]
+    },
+    {
+      "id": "js-building-blocks",
+      "title": "Building Real Things",
+      "blurb": "Now work with collections of data and make web pages react to you.",
+      "level": "intermediate",
+      "topicIds": ["js-arrays", "js-dom", "js-es6"]
+    }
+  ],
+  "topics": [
+    {
+      "id": "js-vars",
+      "title": "Variables & Types",
+      "description": "Learn how to store and label different kinds of data in JavaScript.",
+      "icon": "📦",
+      "level": "beginner",
+      "questions": [
+        {
+          "id": "jv-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which keyword declares a variable whose value can be reassigned later?",
+          "hint": "It is not const.",
+          "options": ["const", "let", "fixed", "define"],
+          "answer": "B",
+          "explanation": "let declares a block-scoped variable that can be reassigned, while const cannot be reassigned.",
+          "tags": ["let", "const", "variables"]
+        },
+        {
+          "id": "jv-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What is the data type of the value true in JavaScript?",
+          "hint": "It can only be true or false.",
+          "options": ["string", "number", "boolean", "object"],
+          "answer": "C",
+          "explanation": "Values that are only true or false are of the boolean type.",
+          "tags": ["boolean", "typeof", "types"]
+        },
+        {
+          "id": "jv-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which of these is a string literal?",
+          "hint": "Strings are wrapped in quotes.",
+          "options": ["42", "true", "\"hello\"", "null"],
+          "answer": "C",
+          "explanation": "Text wrapped in quotes like \"hello\" is a string. The others are a number, a boolean, and null.",
+          "tags": ["string", "types", "literals"]
+        },
+        {
+          "id": "jv-04",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Core concepts",
+          "question": "What does typeof undefined return?",
+          "hint": "Think about what undefined describes.",
+          "options": ["\"null\"", "\"undefined\"", "\"object\"", "\"none\""],
+          "answer": "B",
+          "explanation": "typeof undefined returns the string \"undefined\".",
+          "tags": ["typeof", "undefined", "types"]
+        },
+        {
+          "id": "jv-05",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What is the result of typeof null?",
+          "hint": "This is a famous JavaScript quirk.",
+          "options": ["\"null\"", "\"undefined\"", "\"object\"", "\"boolean\""],
+          "answer": "C",
+          "explanation": "Due to a long-standing bug kept for compatibility, typeof null returns \"object\".",
+          "tags": ["typeof", "null", "types"]
+        },
+        {
+          "id": "jv-06",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which declaration creates a constant that cannot be reassigned?",
+          "hint": "Its name hints at being unchangeable.",
+          "options": ["let x = 1;", "var x = 1;", "const x = 1;", "static x = 1;"],
+          "answer": "C",
+          "explanation": "const creates a binding that cannot be reassigned after its initial value.",
+          "tags": ["const", "variables", "immutability"]
+        },
+        {
+          "id": "jv-07",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What keyword declares a block-scoped variable that you intend to reassign?",
+          "hint": "Three letters.",
+          "answer": "let",
+          "explanation": "let declares a block-scoped variable that can be reassigned.",
+          "tags": ["let", "variables", "scope"]
+        },
+        {
+          "id": "jv-08",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What operator do you use to check both value and type equality?",
+          "hint": "It has three characters.",
+          "answer": "===",
+          "explanation": "The strict equality operator === compares value and type without coercion.",
+          "tags": ["===", "equality", "operators"]
+        },
+        {
+          "id": "jv-09",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What value does an uninitialized variable declared with let hold?",
+          "hint": "It is not yet defined.",
+          "answer": "undefined",
+          "explanation": "A declared but unassigned variable holds the value undefined.",
+          "tags": ["undefined", "let", "variables"]
+        },
+        {
+          "id": "jv-10",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What is the typeof result for the value 3.14 (give the string)?",
+          "hint": "JavaScript has one numeric type.",
+          "answer": "number",
+          "explanation": "All numbers, including decimals, are of type \"number\" in JavaScript.",
+          "tags": ["number", "typeof", "types"]
+        },
+        {
+          "id": "jv-11",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Declare a constant named pi with the value 3.14 and log it to the console.",
+          "hint": "Use const and console.log.",
+          "code": "const pi = 3.14;\nconsole.log(pi);",
+          "explanation": "const declares an unchangeable binding, and console.log prints its value.",
+          "tags": ["const", "console.log", "variables"]
+        },
+        {
+          "id": "jv-12",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Create a variable name set to \"Sam\" and use a template literal to log \"Hello, Sam!\".",
+          "hint": "Use backticks and ${}.",
+          "code": "const name = \"Sam\";\nconsole.log(`Hello, ${name}!`);",
+          "explanation": "Template literals use backticks and ${} to embed variables inside strings.",
+          "tags": ["template literals", "strings", "console.log"]
+        },
+        {
+          "id": "jv-13",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Advanced & scenarios",
+          "question": "Convert the string \"42\" into a number and log the numeric result.",
+          "hint": "Number() converts a string to a number.",
+          "code": "const text = \"42\";\nconst value = Number(text);\nconsole.log(value);",
+          "explanation": "Number() parses a numeric string and returns its number value, here 42.",
+          "tags": ["Number", "type conversion", "parsing"]
+        },
+        {
+          "id": "jv-14",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "What does the following output?\nlet x;\nconsole.log(x + 1);",
+          "hint": "x is undefined, and undefined + number is special.",
+          "options": ["1", "0", "NaN", "undefined1"],
+          "answer": "C",
+          "explanation": "An uninitialized x is undefined; undefined coerced to a number is NaN, so undefined + 1 is NaN.",
+          "tags": ["undefined", "NaN", "coercion"]
+        },
+        {
+          "id": "jv-15",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Write code that logs true only if a variable score (a number) is both a number type and greater than 50.",
+          "hint": "Combine typeof and a comparison with &&.",
+          "code": "const score = 75;\nconst result = typeof score === \"number\" && score > 50;\nconsole.log(result);",
+          "explanation": "typeof checks the type and the && requires both conditions to be true before logging the boolean.",
+          "tags": ["typeof", "boolean", "comparison"]
+        }
+      ]
+    },
+    {
+      "id": "js-operators",
+      "title": "Operators & Conditionals",
+      "description": "Learn to do math, compare values, and make your code take decisions.",
+      "icon": "🔀",
+      "level": "beginner",
+      "questions": [
+        {
+          "id": "jo-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What does the operator % calculate?",
+          "hint": "It relates to division leftovers.",
+          "options": ["A percentage", "The remainder of a division", "Multiplication", "Exponent"],
+          "answer": "B",
+          "explanation": "The modulo operator % returns the remainder after dividing one number by another.",
+          "tags": ["modulo", "operators", "math"]
+        },
+        {
+          "id": "jo-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which operator means 'logical AND'?",
+          "hint": "Two of the same symbol.",
+          "options": ["||", "&&", "!", "=="],
+          "answer": "B",
+          "explanation": "&& is the logical AND operator; both sides must be truthy for the result to be true.",
+          "tags": ["&&", "logical operators", "boolean"]
+        },
+        {
+          "id": "jo-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What does 5 > 3 evaluate to?",
+          "hint": "Is five greater than three?",
+          "options": ["5", "true", "false", "3"],
+          "answer": "B",
+          "explanation": "Comparison operators return a boolean, and 5 is greater than 3, so the result is true.",
+          "tags": ["comparison", "boolean", "operators"]
+        },
+        {
+          "id": "jo-04",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Core concepts",
+          "question": "What is the difference between == and ===?",
+          "hint": "One checks type too.",
+          "options": [
+            "No difference",
+            "== compares value with type coercion, === compares value and type strictly",
+            "=== allows coercion, == does not",
+            "== is for numbers only"
+          ],
+          "answer": "B",
+          "explanation": "== converts types before comparing (loose), while === compares both value and type without coercion (strict).",
+          "tags": ["==", "===", "equality", "coercion"]
+        },
+        {
+          "id": "jo-05",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does the ternary expression age >= 18 ? \"adult\" : \"minor\" return when age is 16?",
+          "hint": "Is 16 at least 18?",
+          "options": ["\"adult\"", "\"minor\"", "true", "16"],
+          "answer": "B",
+          "explanation": "Because 16 is not >= 18, the condition is false and the value after the colon, \"minor\", is returned.",
+          "tags": ["ternary", "conditionals", "operators"]
+        },
+        {
+          "id": "jo-06",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which value is considered falsy in JavaScript?",
+          "hint": "Empty things and zero.",
+          "options": ["\"0\"", "0", "\"false\"", "[]"],
+          "answer": "B",
+          "explanation": "The number 0 is falsy. The string \"0\", string \"false\", and an empty array are all truthy.",
+          "tags": ["falsy", "truthy", "boolean"]
+        },
+        {
+          "id": "jo-07",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What keyword starts a conditional block that runs when a condition is true?",
+          "hint": "Two letters.",
+          "answer": "if",
+          "explanation": "The if keyword begins a conditional block that runs when its condition is truthy.",
+          "tags": ["if", "conditionals", "control flow"]
+        },
+        {
+          "id": "jo-08",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What single symbol is the logical NOT operator?",
+          "hint": "It flips true and false.",
+          "answer": "!",
+          "explanation": "The ! operator negates a boolean, turning true into false and vice versa.",
+          "tags": ["!", "logical operators", "boolean"]
+        },
+        {
+          "id": "jo-09",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does 10 % 3 evaluate to?",
+          "hint": "The remainder after dividing.",
+          "answer": "1",
+          "explanation": "10 divided by 3 is 3 with a remainder of 1, so 10 % 3 is 1.",
+          "tags": ["modulo", "math", "operators"]
+        },
+        {
+          "id": "jo-10",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What statement lets you choose among many cases based on one value?",
+          "hint": "It pairs with case labels.",
+          "answer": "switch",
+          "explanation": "A switch statement compares a value against multiple case labels and runs the matching block.",
+          "tags": ["switch", "conditionals", "control flow"]
+        },
+        {
+          "id": "jo-11",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write an if/else that logs \"pass\" if score is at least 60, otherwise logs \"fail\".",
+          "hint": "Use if (score >= 60).",
+          "code": "const score = 72;\nif (score >= 60) {\n  console.log(\"pass\");\n} else {\n  console.log(\"fail\");\n}",
+          "explanation": "The if checks the condition and runs the matching branch; here 72 >= 60 so it logs \"pass\".",
+          "tags": ["if", "else", "conditionals"]
+        },
+        {
+          "id": "jo-12",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Use a ternary operator to set a variable label to \"even\" or \"odd\" based on the number n.",
+          "hint": "Check n % 2 === 0.",
+          "code": "const n = 7;\nconst label = n % 2 === 0 ? \"even\" : \"odd\";\nconsole.log(label);",
+          "explanation": "The ternary checks if n divides evenly by 2; 7 leaves a remainder, so label becomes \"odd\".",
+          "tags": ["ternary", "modulo", "conditionals"]
+        },
+        {
+          "id": "jo-13",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Advanced & scenarios",
+          "question": "Write a switch statement on a variable day that logs \"weekend\" for \"Sat\" or \"Sun\" and \"weekday\" otherwise.",
+          "hint": "Stack the Sat and Sun cases, and use default.",
+          "code": "const day = \"Sat\";\nswitch (day) {\n  case \"Sat\":\n  case \"Sun\":\n    console.log(\"weekend\");\n    break;\n  default:\n    console.log(\"weekday\");\n}",
+          "explanation": "Stacking cases lets both \"Sat\" and \"Sun\" share a block, and default handles all other days.",
+          "tags": ["switch", "case", "default"]
+        },
+        {
+          "id": "jo-14",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "What does the following log?\nconsole.log(0 || \"hi\" && \"bye\");",
+          "hint": "&& has higher precedence than ||, and evaluation stops at a truthy value.",
+          "options": ["0", "\"hi\"", "\"bye\"", "true"],
+          "answer": "C",
+          "explanation": "&& runs first: \"hi\" && \"bye\" is \"bye\". Then 0 || \"bye\" returns the truthy \"bye\".",
+          "tags": ["||", "&&", "operator precedence"]
+        },
+        {
+          "id": "jo-15",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Write a function classify(num) that returns \"positive\", \"negative\", or \"zero\" for any number.",
+          "hint": "Use if, else if, and else.",
+          "code": "function classify(num) {\n  if (num > 0) {\n    return \"positive\";\n  } else if (num < 0) {\n    return \"negative\";\n  } else {\n    return \"zero\";\n  }\n}\nconsole.log(classify(-5));",
+          "explanation": "The chained if/else if/else covers all three cases, returning the matching label for the sign of num.",
+          "tags": ["if", "else if", "functions"]
+        }
+      ]
+    },
+    {
+      "id": "js-functions",
+      "title": "Loops & Functions",
+      "description": "Learn to repeat work with loops and package reusable logic into functions.",
+      "icon": "🔁",
+      "level": "beginner",
+      "questions": [
+        {
+          "id": "jf-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which keyword defines a traditional named function?",
+          "hint": "It is also the name of the concept.",
+          "options": ["func", "function", "def", "method"],
+          "answer": "B",
+          "explanation": "The function keyword declares a named function in JavaScript.",
+          "tags": ["function", "declaration", "syntax"]
+        },
+        {
+          "id": "jf-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What does a for loop's middle expression typically contain?",
+          "hint": "It decides whether to keep looping.",
+          "options": ["The starting value", "The condition to continue", "The increment step", "The loop body"],
+          "answer": "B",
+          "explanation": "A for loop is for (init; condition; step), and the middle part is the condition checked before each iteration.",
+          "tags": ["for", "loops", "condition"]
+        },
+        {
+          "id": "jf-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What keyword sends a value back out of a function?",
+          "hint": "It ends the function's work.",
+          "options": ["send", "output", "return", "yield"],
+          "answer": "C",
+          "explanation": "The return keyword passes a value back to whatever called the function and ends its execution.",
+          "tags": ["return", "functions", "control flow"]
+        },
+        {
+          "id": "jf-04",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Core concepts",
+          "question": "Which is a valid arrow function that doubles x?",
+          "hint": "Arrow functions use =>.",
+          "options": ["const d = (x) -> x * 2;", "const d = x => x * 2;", "const d = function => x * 2;", "const d = x: x * 2;"],
+          "answer": "B",
+          "explanation": "Arrow functions use the => syntax; const d = x => x * 2 implicitly returns x * 2.",
+          "tags": ["arrow function", "functions", "ES6"]
+        },
+        {
+          "id": "jf-05",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does the break statement do inside a loop?",
+          "hint": "It stops something entirely.",
+          "options": ["Skips one iteration", "Exits the loop immediately", "Restarts the loop", "Pauses execution"],
+          "answer": "B",
+          "explanation": "break immediately stops the loop and continues with the code after it.",
+          "tags": ["break", "loops", "control flow"]
+        },
+        {
+          "id": "jf-06",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does continue do inside a loop?",
+          "hint": "It skips ahead.",
+          "options": ["Exits the loop", "Skips to the next iteration", "Repeats the current line", "Ends the program"],
+          "answer": "B",
+          "explanation": "continue skips the rest of the current iteration and moves on to the next one.",
+          "tags": ["continue", "loops", "control flow"]
+        },
+        {
+          "id": "jf-07",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What loop keyword repeats while a condition stays true and checks before each run?",
+          "hint": "Five letters.",
+          "answer": "while",
+          "explanation": "A while loop checks its condition before each iteration and repeats as long as it is true.",
+          "tags": ["while", "loops", "control flow"]
+        },
+        {
+          "id": "jf-08",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What are the values passed into a function when you call it called?",
+          "hint": "They are the actual values, not the placeholders.",
+          "answer": "arguments",
+          "explanation": "Arguments are the actual values supplied to a function call, matching its parameters.",
+          "tags": ["arguments", "parameters", "functions"]
+        },
+        {
+          "id": "jf-09",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What value does a function return if it has no return statement?",
+          "hint": "It is the default empty value.",
+          "answer": "undefined",
+          "explanation": "A function without a return statement implicitly returns undefined.",
+          "tags": ["return", "undefined", "functions"]
+        },
+        {
+          "id": "jf-10",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What is the name for a function passed as an argument to another function?",
+          "hint": "It gets called back later.",
+          "answer": "callback",
+          "explanation": "A callback is a function passed into another function to be called later.",
+          "tags": ["callback", "functions", "higher-order"]
+        },
+        {
+          "id": "jf-11",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write a function add(a, b) that returns the sum of a and b.",
+          "hint": "Use return a + b.",
+          "code": "function add(a, b) {\n  return a + b;\n}\nconsole.log(add(2, 3));",
+          "explanation": "The function returns the sum of its two parameters; add(2, 3) returns 5.",
+          "tags": ["function", "return", "parameters"]
+        },
+        {
+          "id": "jf-12",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Use a for loop to log the numbers 1 through 5.",
+          "hint": "Start at 1 and loop while i <= 5.",
+          "code": "for (let i = 1; i <= 5; i++) {\n  console.log(i);\n}",
+          "explanation": "The loop starts i at 1, continues while i <= 5, and increments i each time, logging 1 to 5.",
+          "tags": ["for", "loops", "console.log"]
+        },
+        {
+          "id": "jf-13",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Advanced & scenarios",
+          "question": "Write an arrow function isEven that returns true if a number is even.",
+          "hint": "Use n % 2 === 0.",
+          "code": "const isEven = n => n % 2 === 0;\nconsole.log(isEven(4));",
+          "explanation": "The arrow function implicitly returns the boolean result of n % 2 === 0; isEven(4) is true.",
+          "tags": ["arrow function", "modulo", "boolean"]
+        },
+        {
+          "id": "jf-14",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "What does this log?\nfunction f() { return; 5; }\nconsole.log(f());",
+          "hint": "Watch the semicolon right after return.",
+          "options": ["5", "undefined", "null", "Error"],
+          "answer": "B",
+          "explanation": "return; with nothing after it returns undefined, and the 5 line is never reached.",
+          "tags": ["return", "undefined", "functions"]
+        },
+        {
+          "id": "jf-15",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Write a function factorial(n) that returns n! using a loop (factorial of 0 is 1).",
+          "hint": "Multiply numbers from 1 up to n into an accumulator.",
+          "code": "function factorial(n) {\n  let result = 1;\n  for (let i = 2; i <= n; i++) {\n    result *= i;\n  }\n  return result;\n}\nconsole.log(factorial(5));",
+          "explanation": "Starting result at 1 and multiplying by each integer up to n gives n!; factorial(5) is 120.",
+          "tags": ["function", "for", "factorial"]
+        }
+      ]
+    },
+    {
+      "id": "js-arrays",
+      "title": "Arrays & Objects",
+      "description": "Store lists and structured data, then transform them with built-in methods.",
+      "icon": "🗂️",
+      "level": "intermediate",
+      "questions": [
+        {
+          "id": "ja-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "How do you access the first element of an array named items?",
+          "hint": "Arrays are zero-indexed.",
+          "options": ["items[1]", "items[0]", "items.first", "items(0)"],
+          "answer": "B",
+          "explanation": "Array indexes start at 0, so items[0] is the first element.",
+          "tags": ["array", "index", "access"]
+        },
+        {
+          "id": "ja-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which method adds an element to the end of an array?",
+          "hint": "You push it on.",
+          "options": ["pop()", "push()", "shift()", "add()"],
+          "answer": "B",
+          "explanation": "push() appends one or more elements to the end of an array.",
+          "tags": ["push", "array", "methods"]
+        },
+        {
+          "id": "ja-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "How do you read the property name from an object person?",
+          "hint": "Use dot notation.",
+          "options": ["person->name", "person.name", "person::name", "person{name}"],
+          "answer": "B",
+          "explanation": "Object properties are accessed with dot notation like person.name, or bracket notation person[\"name\"].",
+          "tags": ["object", "property", "dot notation"]
+        },
+        {
+          "id": "ja-04",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Core concepts",
+          "question": "What does array.map() return?",
+          "hint": "It produces something the same length.",
+          "options": [
+            "The original array changed in place",
+            "A new array with each element transformed",
+            "A single combined value",
+            "The number of elements"
+          ],
+          "answer": "B",
+          "explanation": "map() creates a new array of the same length where each element is the result of the callback.",
+          "tags": ["map", "array", "methods"]
+        },
+        {
+          "id": "ja-05",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which method keeps only elements that pass a test?",
+          "hint": "It strains out unwanted items.",
+          "options": ["map()", "filter()", "forEach()", "reduce()"],
+          "answer": "B",
+          "explanation": "filter() returns a new array containing only the elements for which the callback returns true.",
+          "tags": ["filter", "array", "methods"]
+        },
+        {
+          "id": "ja-06",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does reduce() do?",
+          "hint": "It combines everything into one.",
+          "options": [
+            "Removes duplicates",
+            "Reduces an array to a single accumulated value",
+            "Shrinks the array length",
+            "Sorts the array"
+          ],
+          "answer": "B",
+          "explanation": "reduce() runs a callback over each element, accumulating them into a single returned value.",
+          "tags": ["reduce", "array", "methods"]
+        },
+        {
+          "id": "ja-07",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What property gives the number of elements in an array?",
+          "hint": "Six letters.",
+          "answer": "length",
+          "explanation": "The length property holds the number of elements in an array.",
+          "tags": ["length", "array", "property"]
+        },
+        {
+          "id": "ja-08",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What method removes and returns the last element of an array?",
+          "hint": "The opposite of push.",
+          "answer": "pop",
+          "explanation": "pop() removes the last element of an array and returns it.",
+          "tags": ["pop", "array", "methods"]
+        },
+        {
+          "id": "ja-09",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What method returns an array of an object's keys (give the full call form, e.g. Object.xxx)?",
+          "hint": "Object dot something.",
+          "answer": "Object.keys",
+          "explanation": "Object.keys(obj) returns an array of the object's own enumerable property names.",
+          "tags": ["Object.keys", "object", "methods"]
+        },
+        {
+          "id": "ja-10",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What array method tests whether at least one element passes a condition?",
+          "hint": "It asks if some do.",
+          "answer": "some",
+          "explanation": "some() returns true if at least one element satisfies the callback test.",
+          "tags": ["some", "array", "methods"]
+        },
+        {
+          "id": "ja-11",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Create an array of three colors and log its length.",
+          "hint": "Use square brackets and .length.",
+          "code": "const colors = [\"red\", \"green\", \"blue\"];\nconsole.log(colors.length);",
+          "explanation": "The array literal holds three strings, and .length reports 3.",
+          "tags": ["array", "length", "literal"]
+        },
+        {
+          "id": "ja-12",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Use map() to create a new array of each number in nums doubled.",
+          "hint": "Return n * 2 from the callback.",
+          "code": "const nums = [1, 2, 3];\nconst doubled = nums.map(n => n * 2);\nconsole.log(doubled);",
+          "explanation": "map() applies the callback to each element, producing [2, 4, 6] without changing nums.",
+          "tags": ["map", "array", "arrow function"]
+        },
+        {
+          "id": "ja-13",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Given an array nums, use filter() to keep only the even numbers.",
+          "hint": "Test n % 2 === 0 in the callback.",
+          "code": "const nums = [1, 2, 3, 4, 5, 6];\nconst evens = nums.filter(n => n % 2 === 0);\nconsole.log(evens);",
+          "explanation": "filter() keeps elements where the callback is true, producing [2, 4, 6].",
+          "tags": ["filter", "array", "modulo"]
+        },
+        {
+          "id": "ja-14",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Use reduce() to compute the sum of all numbers in nums.",
+          "hint": "Start the accumulator at 0 and add each value.",
+          "code": "const nums = [10, 20, 30];\nconst total = nums.reduce((sum, n) => sum + n, 0);\nconsole.log(total);",
+          "explanation": "reduce() accumulates each element into sum starting from 0, yielding 60.",
+          "tags": ["reduce", "array", "accumulator"]
+        },
+        {
+          "id": "ja-15",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "What does this log?\nconst a = [1, 2, 3];\nconst b = a;\nb.push(4);\nconsole.log(a.length);",
+          "hint": "Arrays are reference values.",
+          "options": ["3", "4", "1", "undefined"],
+          "answer": "B",
+          "explanation": "b and a reference the same array, so pushing through b also changes a; its length becomes 4.",
+          "tags": ["reference", "array", "push"]
+        },
+        {
+          "id": "ja-16",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Given an object person with name and age, log each key and value using Object.entries and a for...of loop.",
+          "hint": "Object.entries gives [key, value] pairs.",
+          "code": "const person = { name: \"Sam\", age: 12 };\nfor (const [key, value] of Object.entries(person)) {\n  console.log(`${key}: ${value}`);\n}",
+          "explanation": "Object.entries returns key/value pairs, and destructuring in the for...of loop logs each pair.",
+          "tags": ["Object.entries", "for...of", "destructuring"]
+        }
+      ]
+    },
+    {
+      "id": "js-dom",
+      "title": "DOM & Events",
+      "description": "Select page elements, change them, and respond to user actions like clicks.",
+      "icon": "🖱️",
+      "level": "intermediate",
+      "questions": [
+        {
+          "id": "jd-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What does DOM stand for?",
+          "hint": "It models the document.",
+          "options": ["Data Object Model", "Document Object Model", "Display Order Mode", "Dynamic Output Map"],
+          "answer": "B",
+          "explanation": "DOM stands for Document Object Model, the tree structure representing a web page.",
+          "tags": ["DOM", "document", "concepts"]
+        },
+        {
+          "id": "jd-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which method selects a single element by its id?",
+          "hint": "It mentions the id directly.",
+          "options": ["document.querySelectorAll", "document.getElementById", "document.getElements", "document.findId"],
+          "answer": "B",
+          "explanation": "document.getElementById returns the element with the matching id, or null if none exists.",
+          "tags": ["getElementById", "DOM", "selection"]
+        },
+        {
+          "id": "jd-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which method selects the first element matching a CSS selector?",
+          "hint": "It uses a query and a selector.",
+          "options": ["querySelector", "selectOne", "getByClass", "matchElement"],
+          "answer": "A",
+          "explanation": "document.querySelector returns the first element matching the given CSS selector.",
+          "tags": ["querySelector", "DOM", "selection"]
+        },
+        {
+          "id": "jd-04",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Core concepts",
+          "question": "Which method attaches a click handler to an element btn?",
+          "hint": "You add a listener for an event.",
+          "options": [
+            "btn.onClick(handler)",
+            "btn.addEventListener(\"click\", handler)",
+            "btn.listen(\"click\", handler)",
+            "btn.click = handler"
+          ],
+          "answer": "B",
+          "explanation": "addEventListener(\"click\", handler) registers a function to run when the element is clicked.",
+          "tags": ["addEventListener", "events", "click"]
+        },
+        {
+          "id": "jd-05",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What property changes the text content of an element?",
+          "hint": "It refers to the text inside.",
+          "options": ["element.value", "element.textContent", "element.label", "element.html"],
+          "answer": "B",
+          "explanation": "textContent gets or sets the plain text inside an element.",
+          "tags": ["textContent", "DOM", "properties"]
+        },
+        {
+          "id": "jd-06",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Inside an event handler, what does event.preventDefault() do?",
+          "hint": "It stops the browser's normal reaction.",
+          "options": [
+            "Stops the event from bubbling",
+            "Cancels the default browser action",
+            "Removes the listener",
+            "Reloads the page"
+          ],
+          "answer": "B",
+          "explanation": "preventDefault() cancels the browser's default behavior, such as submitting a form or following a link.",
+          "tags": ["preventDefault", "events", "forms"]
+        },
+        {
+          "id": "jd-07",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What method selects ALL elements matching a CSS selector?",
+          "hint": "Like querySelector but plural.",
+          "answer": "querySelectorAll",
+          "explanation": "document.querySelectorAll returns a NodeList of all elements matching the selector.",
+          "tags": ["querySelectorAll", "DOM", "selection"]
+        },
+        {
+          "id": "jd-08",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What property holds the current text typed into an input field?",
+          "hint": "Five letters.",
+          "answer": "value",
+          "explanation": "The value property of an input element holds the current text entered by the user.",
+          "tags": ["value", "input", "forms"]
+        },
+        {
+          "id": "jd-09",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What object property in a click handler refers to the element that was clicked?",
+          "hint": "event dot something.",
+          "answer": "target",
+          "explanation": "event.target refers to the element that triggered the event.",
+          "tags": ["event.target", "events", "DOM"]
+        },
+        {
+          "id": "jd-10",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What property of an element lets you add or remove CSS classes via add() and remove()?",
+          "hint": "It is a list of classes.",
+          "answer": "classList",
+          "explanation": "The classList property exposes add, remove, toggle, and contains for managing an element's CSS classes.",
+          "tags": ["classList", "DOM", "CSS"]
+        },
+        {
+          "id": "jd-11",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Select the element with id \"title\" and change its text to \"Welcome\".",
+          "hint": "getElementById then set textContent.",
+          "code": "const title = document.getElementById(\"title\");\ntitle.textContent = \"Welcome\";",
+          "explanation": "getElementById finds the element, and assigning to textContent replaces its text.",
+          "tags": ["getElementById", "textContent", "DOM"]
+        },
+        {
+          "id": "jd-12",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Add a click listener to the button with id \"go\" that logs \"clicked\" when pressed.",
+          "hint": "Use addEventListener with \"click\".",
+          "code": "const btn = document.getElementById(\"go\");\nbtn.addEventListener(\"click\", () => {\n  console.log(\"clicked\");\n});",
+          "explanation": "addEventListener registers the arrow function to run on every click of the button.",
+          "tags": ["addEventListener", "click", "events"]
+        },
+        {
+          "id": "jd-13",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Advanced & scenarios",
+          "question": "Create a new li element with text \"Item\" and append it to the ul with id \"list\".",
+          "hint": "createElement, set textContent, then appendChild.",
+          "code": "const list = document.getElementById(\"list\");\nconst li = document.createElement(\"li\");\nli.textContent = \"Item\";\nlist.appendChild(li);",
+          "explanation": "createElement builds a new node, textContent sets its text, and appendChild adds it to the list.",
+          "tags": ["createElement", "appendChild", "DOM"]
+        },
+        {
+          "id": "jd-14",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Attach a submit handler to a form with id \"form\" that prevents the default action and logs the input's value (input id \"name\").",
+          "hint": "Use preventDefault and read the input value.",
+          "code": "const form = document.getElementById(\"form\");\nform.addEventListener(\"submit\", (event) => {\n  event.preventDefault();\n  const name = document.getElementById(\"name\").value;\n  console.log(name);\n});",
+          "explanation": "preventDefault stops the page from reloading, and we read the entered text from the input's value.",
+          "tags": ["submit", "preventDefault", "value"]
+        },
+        {
+          "id": "jd-15",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "You add one click listener to a parent ul and check event.target to handle clicks on its li children. What pattern is this?",
+          "hint": "The event bubbles up to the parent.",
+          "options": ["Event capturing", "Event delegation", "Event throttling", "Event polyfilling"],
+          "answer": "B",
+          "explanation": "Event delegation uses a single listener on a parent and inspects event.target to handle events from many children, leveraging bubbling.",
+          "tags": ["event delegation", "bubbling", "event.target"]
+        }
+      ]
+    },
+    {
+      "id": "js-es6",
+      "title": "ES6+ & Async Basics",
+      "description": "Use modern syntax like destructuring and spread, plus promises and async/await.",
+      "icon": "🚀",
+      "level": "intermediate",
+      "questions": [
+        {
+          "id": "je-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What does the spread operator ... do with an array?",
+          "hint": "It spreads elements out.",
+          "options": [
+            "Joins it into a string",
+            "Expands its elements individually",
+            "Reverses it",
+            "Counts its elements"
+          ],
+          "answer": "B",
+          "explanation": "The spread operator expands an array's elements, useful for copying or combining arrays.",
+          "tags": ["spread", "ES6", "arrays"]
+        },
+        {
+          "id": "je-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which syntax pulls properties out of an object into variables?",
+          "hint": "You break it apart.",
+          "options": ["Spreading", "Destructuring", "Mapping", "Filtering"],
+          "answer": "B",
+          "explanation": "Destructuring extracts values from objects or arrays into distinct variables.",
+          "tags": ["destructuring", "ES6", "objects"]
+        },
+        {
+          "id": "je-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What does an async function always return?",
+          "hint": "It wraps the result automatically.",
+          "options": ["A string", "A Promise", "undefined", "A callback"],
+          "answer": "B",
+          "explanation": "An async function always returns a Promise, even if its body returns a plain value.",
+          "tags": ["async", "Promise", "ES6"]
+        },
+        {
+          "id": "je-04",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Core concepts",
+          "question": "What keyword pauses an async function until a Promise settles?",
+          "hint": "You wait for it.",
+          "options": ["pause", "await", "hold", "defer"],
+          "answer": "B",
+          "explanation": "await pauses an async function until the awaited Promise resolves or rejects.",
+          "tags": ["await", "async", "Promise"]
+        },
+        {
+          "id": "je-05",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What method handles a rejected Promise?",
+          "hint": "You catch the error.",
+          "options": [".then()", ".catch()", ".finally()", ".reject()"],
+          "answer": "B",
+          "explanation": ".catch() registers a handler that runs when a Promise rejects with an error.",
+          "tags": ["catch", "Promise", "error handling"]
+        },
+        {
+          "id": "je-06",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does the default parameter in function greet(name = \"friend\") do?",
+          "hint": "It fills in when nothing is passed.",
+          "options": [
+            "Forces name to always be \"friend\"",
+            "Uses \"friend\" when name is undefined",
+            "Throws an error if name is missing",
+            "Makes name read-only"
+          ],
+          "answer": "B",
+          "explanation": "A default parameter supplies its value only when the argument is missing or undefined.",
+          "tags": ["default parameters", "functions", "ES6"]
+        },
+        {
+          "id": "je-07",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What keyword marks a function so it can use await inside it?",
+          "hint": "Five letters.",
+          "answer": "async",
+          "explanation": "The async keyword marks a function as asynchronous, allowing await inside it.",
+          "tags": ["async", "await", "functions"]
+        },
+        {
+          "id": "je-08",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What three-dot symbol is used for both spread and rest?",
+          "hint": "It is three of the same character.",
+          "answer": "...",
+          "explanation": "The ... token serves as the spread operator (expanding) and the rest operator (collecting).",
+          "tags": ["spread", "rest", "ES6"]
+        },
+        {
+          "id": "je-09",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What Promise method runs whether it resolves or rejects?",
+          "hint": "It always happens at the end.",
+          "answer": "finally",
+          "explanation": ".finally() runs its callback after a Promise settles, regardless of success or failure.",
+          "tags": ["finally", "Promise", "async"]
+        },
+        {
+          "id": "je-10",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What is the modern browser API function used to make HTTP requests (one word)?",
+          "hint": "It is the function name itself.",
+          "answer": "fetch",
+          "explanation": "fetch() is the modern browser API that returns a Promise for making network requests.",
+          "tags": ["fetch", "async", "Promise"]
+        },
+        {
+          "id": "je-11",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Use destructuring to pull name and age out of the object user.",
+          "hint": "Use const { name, age } = user.",
+          "code": "const user = { name: \"Ada\", age: 30 };\nconst { name, age } = user;\nconsole.log(name, age);",
+          "explanation": "Object destructuring assigns user.name to name and user.age to age in one statement.",
+          "tags": ["destructuring", "objects", "ES6"]
+        },
+        {
+          "id": "je-12",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Use the spread operator to merge arrays a and b into one array.",
+          "hint": "Put both inside a new array literal with ...",
+          "code": "const a = [1, 2];\nconst b = [3, 4];\nconst merged = [...a, ...b];\nconsole.log(merged);",
+          "explanation": "Spreading both arrays into a new literal produces [1, 2, 3, 4] without mutating the originals.",
+          "tags": ["spread", "arrays", "ES6"]
+        },
+        {
+          "id": "je-13",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Advanced & scenarios",
+          "question": "Write an async function getData that awaits fetch on a url and returns the parsed JSON.",
+          "hint": "await fetch, then await response.json().",
+          "code": "async function getData(url) {\n  const response = await fetch(url);\n  const data = await response.json();\n  return data;\n}",
+          "explanation": "await pauses for the fetch Promise, then for response.json(), returning the parsed data from the async function.",
+          "tags": ["async", "await", "fetch"]
+        },
+        {
+          "id": "je-14",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Write a function sum that uses rest parameters to add any number of arguments.",
+          "hint": "Use ...nums and reduce.",
+          "code": "function sum(...nums) {\n  return nums.reduce((total, n) => total + n, 0);\n}\nconsole.log(sum(1, 2, 3, 4));",
+          "explanation": "The rest parameter collects all arguments into an array, and reduce sums them; sum(1,2,3,4) is 10.",
+          "tags": ["rest parameters", "reduce", "ES6"]
+        },
+        {
+          "id": "je-15",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "What order do these logs appear?\nconsole.log(\"A\");\nsetTimeout(() => console.log(\"B\"), 0);\nPromise.resolve().then(() => console.log(\"C\"));\nconsole.log(\"D\");",
+          "hint": "Synchronous code first, then microtasks (promises) before macrotasks (timers).",
+          "options": ["A B C D", "A D C B", "A D B C", "A C D B"],
+          "answer": "B",
+          "explanation": "Synchronous A and D run first; the Promise microtask C runs before the setTimeout macrotask B, giving A D C B.",
+          "tags": ["event loop", "Promise", "setTimeout"]
+        }
+      ]
+    }
+  ]
+}

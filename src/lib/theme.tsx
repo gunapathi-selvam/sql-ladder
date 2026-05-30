@@ -9,15 +9,15 @@ interface ThemeCtx {
   toggle: () => void;
 }
 
-const Ctx = createContext<ThemeCtx>({ theme: "dark", toggle: () => {} });
+const Ctx = createContext<ThemeCtx>({ theme: "light", toggle: () => {} });
 
-const KEY = "sakila-theme";
+const KEY = "ll-theme";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    const stored = (window.localStorage.getItem(KEY) as Theme | null) ?? "dark";
+    const stored = (window.localStorage.getItem(KEY) as Theme | null) ?? "light";
     setTheme(stored);
     document.documentElement.classList.toggle("dark", stored === "dark");
   }, []);

@@ -3,42 +3,119 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
+  /* Default accent (indigo) — overridden per track by the .track-* classes below. */
+  --accent: 79 70 229;
+  --accent-fg: 255 255 255;
 }
 
-html, body {
+html.dark {
+  color-scheme: dark;
+}
+
+html,
+body {
   height: 100%;
 }
 
 body {
-  @apply bg-white text-slate-900 antialiased;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  @apply bg-paper text-ink antialiased;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }
 
 html.dark body {
-  @apply bg-slate-950 text-slate-100;
+  @apply bg-paper-dark text-ink-dark;
 }
 
-/* SQL syntax colors — work in both themes */
-.sql-kw  { color: #c084fc; font-weight: 600; }
-.sql-fn  { color: #60a5fa; }
-.sql-str { color: #34d399; }
-.sql-num { color: #fbbf24; }
-.sql-com { color: #94a3b8; font-style: italic; }
+/* ---- Per-track accent (RGB triplets so we can vary alpha) ---- */
+.track-sql {
+  --accent: 79 70 229;
+} /* indigo-600 */
+.track-html {
+  --accent: 234 88 12;
+} /* orange-600 */
+.track-css {
+  --accent: 2 132 199;
+} /* sky-600 */
+.track-js {
+  --accent: 202 138 4;
+} /* amber-600 */
 
-html:not(.dark) .sql-kw  { color: #7c3aed; }
-html:not(.dark) .sql-fn  { color: #1d4ed8; }
-html:not(.dark) .sql-str { color: #047857; }
-html:not(.dark) .sql-num { color: #b45309; }
-html:not(.dark) .sql-com { color: #64748b; }
+/* ---- Accent utility classes (drive off --accent) ---- */
+.text-accent {
+  color: rgb(var(--accent));
+}
+.bg-accent {
+  background-color: rgb(var(--accent));
+  color: rgb(var(--accent-fg));
+}
+.bg-accent:hover {
+  background-color: rgb(var(--accent) / 0.9);
+}
+.bg-accent-soft {
+  background-color: rgb(var(--accent) / 0.1);
+}
+.border-accent {
+  border-color: rgb(var(--accent));
+}
+.border-accent-soft {
+  border-color: rgb(var(--accent) / 0.3);
+}
+.ring-accent {
+  --tw-ring-color: rgb(var(--accent));
+}
+.hover-accent:hover {
+  border-color: rgb(var(--accent) / 0.5);
+}
 
-/* Scrollbars */
-.code-scroll::-webkit-scrollbar { height: 8px; width: 8px; }
-.code-scroll::-webkit-scrollbar-thumb { background: rgba(148,163,184,0.4); border-radius: 4px; }
-.code-scroll::-webkit-scrollbar-thumb:hover { background: rgba(148,163,184,0.6); }
+/* ---- Code syntax colors (dark code surface in both themes) ---- */
+.sql-kw {
+  color: #c4b5fd;
+  font-weight: 600;
+}
+.sql-fn {
+  color: #93c5fd;
+}
+.sql-str {
+  color: #6ee7b7;
+}
+.sql-num {
+  color: #fcd34d;
+}
+.sql-com {
+  color: #94a3b8;
+  font-style: italic;
+}
+.sql-tag {
+  color: #f9a8d4;
+}
+.sql-attr {
+  color: #93c5fd;
+}
+
+/* ---- Scrollbars ---- */
+.code-scroll::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.code-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 4px;
+}
+.code-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
 
 @media print {
-  .no-print { display: none !important; }
-  body { background: white !important; color: black !important; }
-  .print-card { break-inside: avoid; }
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-card {
+    break-inside: avoid;
+  }
 }

@@ -1,0 +1,1164 @@
+{
+  "id": "css",
+  "title": "CSS",
+  "tagline": "Style web pages",
+  "description": "Learn how CSS styles web pages with colors, layouts, and responsive designs. Master selectors, the box model, Flexbox, and Grid to make beautiful sites.",
+  "icon": "🎨",
+  "codeLang": "css",
+  "refsLabel": "Properties",
+  "roadmap": [
+    {
+      "id": "css-foundations",
+      "title": "CSS Foundations",
+      "blurb": "Learn how to pick elements and give them colors and backgrounds!",
+      "level": "beginner",
+      "topicIds": ["css-selectors", "css-colors"]
+    },
+    {
+      "id": "css-spacing-text",
+      "title": "Spacing & Text",
+      "blurb": "Control space around boxes and make your text look great.",
+      "level": "beginner",
+      "topicIds": ["css-box", "css-type"]
+    },
+    {
+      "id": "css-modern-layout",
+      "title": "Modern Layout",
+      "blurb": "Arrange things neatly with Flexbox and Grid, and make pages fit any screen.",
+      "level": "intermediate",
+      "topicIds": ["css-flex", "css-grid"]
+    }
+  ],
+  "topics": [
+    {
+      "id": "css-selectors",
+      "title": "Selectors & Syntax",
+      "description": "Learn how to target HTML elements and write valid CSS rules.",
+      "icon": "🎯",
+      "level": "beginner",
+      "questions": [
+        {
+          "id": "cs-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which symbol is used to select an element by its id?",
+          "hint": "It is also used for anchors in links.",
+          "options": ["#", ".", "*", "@"],
+          "answer": "A",
+          "explanation": "An id selector starts with a hash, like #header, and matches the element whose id attribute equals that value.",
+          "tags": ["id selector", "selectors"]
+        },
+        {
+          "id": "cs-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which selector targets all elements that have class=\"box\"?",
+          "hint": "Class selectors start with a dot.",
+          "options": ["#box", ".box", "box", "*box"],
+          "answer": "B",
+          "explanation": "A class selector begins with a dot, so .box matches every element with class \"box\".",
+          "tags": ["class selector", "selectors"]
+        },
+        {
+          "id": "cs-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What does the universal selector * match?",
+          "hint": "Think of the widest possible reach.",
+          "options": ["Only links", "Only the body", "Every element", "Nothing"],
+          "answer": "C",
+          "explanation": "The universal selector * matches every element on the page.",
+          "tags": ["universal selector", "selectors"]
+        },
+        {
+          "id": "cs-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What punctuation mark ends each CSS declaration inside a rule?",
+          "hint": "It separates one property:value from the next.",
+          "answer": "semicolon",
+          "explanation": "Each declaration like color: red ends with a semicolon, so you can list multiple declarations in one rule.",
+          "tags": ["syntax", "declaration"]
+        },
+        {
+          "id": "cs-05",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "In the rule p { color: blue; }, what is the part 'p' called?",
+          "hint": "It chooses which elements get the styles.",
+          "answer": "selector",
+          "explanation": "The selector (here, p) decides which HTML elements the declarations inside the curly braces apply to.",
+          "tags": ["selector", "syntax"]
+        },
+        {
+          "id": "cs-06",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Write a CSS rule that makes all <h1> elements have the color green.",
+          "hint": "Use the element name as the selector.",
+          "code": "h1 {\n  color: green;\n}",
+          "explanation": "An element (type) selector h1 targets every h1, and color: green sets the text color.",
+          "tags": ["type selector", "color"]
+        },
+        {
+          "id": "cs-07",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write a rule that gives every element with class \"card\" a 1px solid gray border.",
+          "hint": "Class selectors start with a dot.",
+          "code": ".card {\n  border: 1px solid gray;\n}",
+          "explanation": "The class selector .card matches all cards, and the border shorthand sets width, style, and color at once.",
+          "tags": ["class selector", "border"]
+        },
+        {
+          "id": "cs-08",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does the selector \"nav a\" target?",
+          "hint": "A space between two selectors means descendant.",
+          "options": [
+            "All <a> elements anywhere",
+            "<a> elements that are descendants of a <nav>",
+            "An element that is both nav and a",
+            "<nav> elements inside <a>"
+          ],
+          "answer": "B",
+          "explanation": "A space is the descendant combinator, so nav a matches any <a> nested inside a <nav>.",
+          "tags": ["descendant combinator", "selectors"]
+        },
+        {
+          "id": "cs-09",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which selector applies the same style to both <h1> and <h2> at once?",
+          "hint": "A comma groups selectors.",
+          "options": ["h1 h2", "h1 > h2", "h1, h2", "h1 + h2"],
+          "answer": "C",
+          "explanation": "A comma creates a selector list, so h1, h2 applies the declarations to both element types.",
+          "tags": ["grouping", "selectors"]
+        },
+        {
+          "id": "cs-10",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which pseudo-class styles a link when the mouse pointer is over it?",
+          "hint": "Type the pseudo-class including its colon.",
+          "answer": ":hover",
+          "explanation": "The :hover pseudo-class applies styles while the user hovers the pointer over an element.",
+          "tags": ["pseudo-class", "hover"]
+        },
+        {
+          "id": "cs-11",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a rule that selects <li> elements that are direct children of a <ul> and removes their bullets.",
+          "hint": "The > combinator means direct child; list-style-type removes bullets.",
+          "code": "ul > li {\n  list-style-type: none;\n}",
+          "explanation": "ul > li matches only li elements directly inside a ul, and list-style-type: none hides the bullet markers.",
+          "tags": ["child combinator", "list-style-type"]
+        },
+        {
+          "id": "cs-12",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Two rules match the same paragraph: \"p { color: red; }\" and \"#intro { color: blue; }\". The paragraph has id=\"intro\". What color is the text?",
+          "hint": "Compare the specificity of an id versus an element selector.",
+          "options": ["Red", "Blue", "Black", "It is invalid"],
+          "answer": "B",
+          "explanation": "An id selector has higher specificity than an element selector, so #intro wins and the text is blue.",
+          "tags": ["specificity", "cascade"]
+        },
+        {
+          "id": "cs-13",
+          "type": "single",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "A button must always appear orange, even when other rules try to override it. Which keyword forces a declaration to win?",
+          "hint": "It is written after the value, like color: orange ____;",
+          "answer": "!important",
+          "explanation": "Adding !important to a declaration makes it override normal cascade and specificity rules.",
+          "tags": ["!important", "cascade"]
+        },
+        {
+          "id": "cs-14",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "A form has many inputs, but only the ones with type=\"text\" should get a light yellow background. Write the rule using an attribute selector.",
+          "hint": "Use input[attribute=\"value\"] syntax.",
+          "code": "input[type=\"text\"] {\n  background-color: lightyellow;\n}",
+          "explanation": "The attribute selector input[type=\"text\"] matches only text inputs, leaving other input types unchanged.",
+          "tags": ["attribute selector", "background-color"]
+        },
+        {
+          "id": "cs-15",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Style the first <li> in every list differently by giving it bold text using a structural pseudo-class.",
+          "hint": "There is a pseudo-class for the first child of its type.",
+          "code": "li:first-child {\n  font-weight: bold;\n}",
+          "explanation": "li:first-child matches each li that is the first child of its parent, making only the first item bold.",
+          "tags": ["pseudo-class", "first-child"]
+        }
+      ]
+    },
+    {
+      "id": "css-colors",
+      "title": "Colors & Backgrounds",
+      "description": "Learn how to set colors and create backgrounds for your elements.",
+      "icon": "🌈",
+      "level": "beginner",
+      "questions": [
+        {
+          "id": "cc-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property sets the text color of an element?",
+          "hint": "It is a short, common word.",
+          "options": ["text-color", "color", "font-color", "fill"],
+          "answer": "B",
+          "explanation": "The color property controls the foreground (text) color of an element.",
+          "tags": ["color", "text"]
+        },
+        {
+          "id": "cc-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property sets the background color of an element?",
+          "hint": "It is a hyphenated property.",
+          "options": ["bg-color", "background-color", "color-background", "back-color"],
+          "answer": "B",
+          "explanation": "background-color fills the element's background with a solid color.",
+          "tags": ["background-color"]
+        },
+        {
+          "id": "cc-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What does the hex color #FFFFFF represent?",
+          "hint": "All channels are at maximum.",
+          "options": ["Black", "Red", "White", "Blue"],
+          "answer": "C",
+          "explanation": "In hex, FF means full intensity for red, green, and blue, which combine to make white.",
+          "tags": ["hex", "color"]
+        },
+        {
+          "id": "cc-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "In rgb(255, 0, 0), which color is produced?",
+          "hint": "Only the first channel is at full value.",
+          "answer": "red",
+          "explanation": "rgb sets red, green, and blue; here red is full (255) and the others are 0, so the result is red.",
+          "tags": ["rgb", "color"]
+        },
+        {
+          "id": "cc-05",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What is the shortest hex code for black?",
+          "hint": "Three-digit hex shorthand uses repeated digits.",
+          "answer": "#000",
+          "explanation": "#000 is shorthand for #000000, which means no red, green, or blue, producing black.",
+          "tags": ["hex", "color"]
+        },
+        {
+          "id": "cc-06",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Write a rule that gives the <body> a light blue background color.",
+          "hint": "Use a named color or hex value.",
+          "code": "body {\n  background-color: lightblue;\n}",
+          "explanation": "background-color: lightblue fills the whole page background with the named color lightblue.",
+          "tags": ["background-color", "body"]
+        },
+        {
+          "id": "cc-07",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write a rule for the class \"alert\" with white text on a red background.",
+          "hint": "Set both color and background-color.",
+          "code": ".alert {\n  color: white;\n  background-color: red;\n}",
+          "explanation": "color sets the text to white while background-color makes the box red, giving a clear alert style.",
+          "tags": ["color", "background-color"]
+        },
+        {
+          "id": "cc-08",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does the 4th value in rgba(0, 0, 0, 0.5) control?",
+          "hint": "It ranges from 0 to 1.",
+          "options": ["Brightness", "Opacity (alpha)", "Hue", "Saturation"],
+          "answer": "B",
+          "explanation": "The alpha value in rgba sets opacity, where 0 is fully transparent and 1 is fully opaque.",
+          "tags": ["rgba", "opacity"]
+        },
+        {
+          "id": "cc-09",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which function creates a smooth color transition for a background?",
+          "hint": "It is set as a background image value.",
+          "options": ["fade()", "linear-gradient()", "blend()", "mix()"],
+          "answer": "B",
+          "explanation": "linear-gradient() generates an image of colors blending in a straight line, used as a background.",
+          "tags": ["linear-gradient", "background"]
+        },
+        {
+          "id": "cc-10",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which property would you use to make an image fill an element's background?",
+          "hint": "It accepts a url() value.",
+          "answer": "background-image",
+          "explanation": "background-image: url(...) sets an image as the element's background.",
+          "tags": ["background-image"]
+        },
+        {
+          "id": "cc-11",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a rule for class \"hero\" that uses a top-to-bottom gradient from purple to pink.",
+          "hint": "linear-gradient(to bottom, color1, color2).",
+          "code": ".hero {\n  background-image: linear-gradient(to bottom, purple, pink);\n}",
+          "explanation": "linear-gradient(to bottom, ...) blends purple at the top into pink at the bottom as a background image.",
+          "tags": ["linear-gradient", "background-image"]
+        },
+        {
+          "id": "cc-12",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "You set background-color: blue and opacity: 0.5 on a box. What happens?",
+          "hint": "Opacity affects the whole element, not just the background.",
+          "options": [
+            "Only the background becomes see-through",
+            "The entire box, including text, becomes 50% transparent",
+            "Nothing changes",
+            "The text stays solid, only the box fades"
+          ],
+          "answer": "B",
+          "explanation": "The opacity property makes the entire element and its contents semi-transparent, not just the background.",
+          "tags": ["opacity", "background-color"]
+        },
+        {
+          "id": "cc-13",
+          "type": "single",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "You want a semi-transparent background but fully solid text. Which color format should the background use instead of opacity?",
+          "hint": "It includes an alpha channel.",
+          "answer": "rgba",
+          "explanation": "Using rgba (or hsla) for background-color affects only the background's transparency, leaving the text fully opaque.",
+          "tags": ["rgba", "opacity"]
+        },
+        {
+          "id": "cc-14",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "A card needs a background image that does not repeat and is centered and covers the whole area. Write the rules for class \"banner\".",
+          "hint": "Use background-image, background-repeat, background-position, and background-size.",
+          "code": ".banner {\n  background-image: url(\"banner.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n}",
+          "explanation": "no-repeat stops tiling, center positions the image, and cover scales it to fill the element while keeping its aspect ratio.",
+          "tags": ["background-size", "background-position", "background-repeat"]
+        },
+        {
+          "id": "cc-15",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Advanced & scenarios",
+          "question": "Define a reusable brand color as a custom property on :root, then use it for the color of class \"brand\".",
+          "hint": "Custom properties start with -- and are read with var().",
+          "code": ":root {\n  --brand-color: #3366ff;\n}\n\n.brand {\n  color: var(--brand-color);\n}",
+          "explanation": "Defining --brand-color on :root makes it global, and var(--brand-color) reuses it so the color is easy to change in one place.",
+          "tags": ["custom properties", "var", "color"]
+        }
+      ]
+    },
+    {
+      "id": "css-box",
+      "title": "Box Model & Spacing",
+      "description": "Understand how margin, border, padding, and content build every box.",
+      "icon": "📦",
+      "level": "beginner",
+      "questions": [
+        {
+          "id": "cb-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property adds space INSIDE an element, between its content and border?",
+          "hint": "Think of padding inside a box.",
+          "options": ["margin", "padding", "border", "gap"],
+          "answer": "B",
+          "explanation": "Padding is the space between an element's content and its border, inside the element.",
+          "tags": ["padding", "box model"]
+        },
+        {
+          "id": "cb-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property adds space OUTSIDE an element, pushing other elements away?",
+          "hint": "It is the outermost layer of the box model.",
+          "options": ["padding", "border", "margin", "outline"],
+          "answer": "C",
+          "explanation": "Margin is the space outside the border that separates an element from its neighbors.",
+          "tags": ["margin", "box model"]
+        },
+        {
+          "id": "cb-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What are the four layers of the box model from inside to outside?",
+          "hint": "Content is in the middle.",
+          "options": [
+            "Content, padding, border, margin",
+            "Margin, border, padding, content",
+            "Border, content, margin, padding",
+            "Padding, content, margin, border"
+          ],
+          "answer": "A",
+          "explanation": "The box model goes content, then padding, then border, then margin from inside to outside.",
+          "tags": ["box model"]
+        },
+        {
+          "id": "cb-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property draws a line around the edge of an element's box?",
+          "hint": "It sits between padding and margin.",
+          "answer": "border",
+          "explanation": "The border property draws a line around the padding and content of an element.",
+          "tags": ["border", "box model"]
+        },
+        {
+          "id": "cb-05",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Write a rule for class \"box\" that adds 20px of padding on all sides.",
+          "hint": "One value applies to all sides.",
+          "code": ".box {\n  padding: 20px;\n}",
+          "explanation": "A single padding value applies equally to the top, right, bottom, and left sides.",
+          "tags": ["padding"]
+        },
+        {
+          "id": "cb-06",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Write a rule that centers a block element horizontally using auto margins, with a width of 600px.",
+          "hint": "Set width, then margin: 0 auto.",
+          "code": ".container {\n  width: 600px;\n  margin: 0 auto;\n}",
+          "explanation": "With a fixed width, margin: 0 auto splits the leftover horizontal space evenly, centering the block.",
+          "tags": ["margin", "width", "centering"]
+        },
+        {
+          "id": "cb-07",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "In margin: 10px 20px, what does the 20px apply to?",
+          "hint": "Two values mean vertical then horizontal.",
+          "answer": "left and right",
+          "explanation": "With two values, the first is top/bottom and the second is left/right, so 20px applies to left and right.",
+          "tags": ["margin", "shorthand"]
+        },
+        {
+          "id": "cb-08",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "By default (content-box), if a div has width: 200px and padding: 20px, what is its total rendered width?",
+          "hint": "Padding adds onto the width in content-box.",
+          "options": ["200px", "220px", "240px", "180px"],
+          "answer": "C",
+          "explanation": "With content-box, padding (20px on each side = 40px) is added to the 200px width, giving 240px total.",
+          "tags": ["box-sizing", "width", "padding"]
+        },
+        {
+          "id": "cb-09",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which box-sizing value makes width include padding and border?",
+          "hint": "It makes sizing more predictable.",
+          "options": ["content-box", "border-box", "padding-box", "margin-box"],
+          "answer": "B",
+          "explanation": "border-box includes padding and border within the declared width, so the element never grows beyond it.",
+          "tags": ["box-sizing"]
+        },
+        {
+          "id": "cb-10",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which property rounds the corners of an element's box?",
+          "hint": "It is a border-related property.",
+          "answer": "border-radius",
+          "explanation": "border-radius rounds the corners; larger values create more rounded or even circular shapes.",
+          "tags": ["border-radius"]
+        },
+        {
+          "id": "cb-11",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a rule for class \"avatar\" that turns a 100px by 100px image into a circle.",
+          "hint": "border-radius: 50% on a square makes a circle.",
+          "code": ".avatar {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n}",
+          "explanation": "A 50% border-radius on a square element rounds all corners enough to form a perfect circle.",
+          "tags": ["border-radius", "width", "height"]
+        },
+        {
+          "id": "cb-12",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Apply border-box sizing to every element using the universal selector.",
+          "hint": "Target * and set box-sizing.",
+          "code": "* {\n  box-sizing: border-box;\n}",
+          "explanation": "Setting box-sizing: border-box on all elements makes widths include padding and border, simplifying layouts.",
+          "tags": ["box-sizing", "universal selector"]
+        },
+        {
+          "id": "cb-13",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Two stacked block elements each have margin-bottom: 30px and margin-top: 20px. What is the gap between them?",
+          "hint": "Vertical margins collapse to the larger value.",
+          "options": ["50px", "30px", "20px", "10px"],
+          "answer": "B",
+          "explanation": "Adjacent vertical margins collapse, so the gap equals the larger margin (30px) rather than their sum.",
+          "tags": ["margin collapse", "margin"]
+        },
+        {
+          "id": "cb-14",
+          "type": "single",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "A designer wants a box that stays exactly 300px wide no matter how much padding is added. Which box-sizing value achieves this?",
+          "hint": "It keeps padding inside the declared width.",
+          "answer": "border-box",
+          "explanation": "With box-sizing: border-box, padding is included inside the 300px width, so the box never exceeds 300px.",
+          "tags": ["box-sizing", "width"]
+        },
+        {
+          "id": "cb-15",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Create a button class with 10px top/bottom and 24px left/right padding, a 2px solid navy border, and 8px rounded corners.",
+          "hint": "Use the two-value padding shorthand.",
+          "code": ".button {\n  padding: 10px 24px;\n  border: 2px solid navy;\n  border-radius: 8px;\n}",
+          "explanation": "The padding shorthand sets vertical (10px) and horizontal (24px) spacing, while border and border-radius style the edges.",
+          "tags": ["padding", "border", "border-radius"]
+        }
+      ]
+    },
+    {
+      "id": "css-type",
+      "title": "Typography",
+      "description": "Style text with fonts, sizes, weights, spacing, and alignment.",
+      "icon": "🔤",
+      "level": "beginner",
+      "questions": [
+        {
+          "id": "ct-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property changes the size of text?",
+          "hint": "It is about the font.",
+          "options": ["text-size", "font-size", "size", "font-height"],
+          "answer": "B",
+          "explanation": "font-size sets how large the text characters appear.",
+          "tags": ["font-size"]
+        },
+        {
+          "id": "ct-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property makes text bold?",
+          "hint": "It controls the thickness of letters.",
+          "options": ["font-style", "text-decoration", "font-weight", "font-bold"],
+          "answer": "C",
+          "explanation": "font-weight controls thickness; values like bold or 700 make text heavier.",
+          "tags": ["font-weight"]
+        },
+        {
+          "id": "ct-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property makes text italic?",
+          "hint": "Style of the font.",
+          "options": ["font-weight", "font-style", "text-style", "font-italic"],
+          "answer": "B",
+          "explanation": "font-style: italic slants the text into an italic style.",
+          "tags": ["font-style"]
+        },
+        {
+          "id": "ct-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property horizontally aligns text to the center?",
+          "hint": "Set its value to center.",
+          "answer": "text-align",
+          "explanation": "text-align: center centers inline content like text within its block.",
+          "tags": ["text-align"]
+        },
+        {
+          "id": "ct-05",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property would you use to underline text?",
+          "hint": "It decorates the text.",
+          "answer": "text-decoration",
+          "explanation": "text-decoration: underline draws a line under text; it also controls overline and line-through.",
+          "tags": ["text-decoration"]
+        },
+        {
+          "id": "ct-06",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Write a rule for <p> that sets the font size to 18px and centers the text.",
+          "hint": "Combine font-size and text-align.",
+          "code": "p {\n  font-size: 18px;\n  text-align: center;\n}",
+          "explanation": "font-size makes the paragraph text 18px, and text-align: center horizontally centers it.",
+          "tags": ["font-size", "text-align"]
+        },
+        {
+          "id": "ct-07",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Applied practice",
+          "question": "Write a rule that removes the underline from all links (<a>).",
+          "hint": "text-decoration: none.",
+          "code": "a {\n  text-decoration: none;\n}",
+          "explanation": "text-decoration: none removes the default underline browsers add to links.",
+          "tags": ["text-decoration", "links"]
+        },
+        {
+          "id": "ct-08",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does font-family: Arial, sans-serif mean?",
+          "hint": "The second value is a fallback.",
+          "options": [
+            "Use both fonts at once",
+            "Use Arial; if unavailable, use any sans-serif font",
+            "Use sans-serif only",
+            "It is invalid syntax"
+          ],
+          "answer": "B",
+          "explanation": "font-family lists fonts in order of preference; the browser uses Arial if present, otherwise a generic sans-serif.",
+          "tags": ["font-family", "fallback"]
+        },
+        {
+          "id": "ct-09",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which property controls the vertical space between lines of text?",
+          "hint": "It improves readability of paragraphs.",
+          "options": ["letter-spacing", "line-height", "word-spacing", "text-indent"],
+          "answer": "B",
+          "explanation": "line-height sets the height of each line, spacing wrapped lines further apart for readability.",
+          "tags": ["line-height"]
+        },
+        {
+          "id": "ct-10",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which property changes text to all uppercase without editing the HTML?",
+          "hint": "It transforms the text case.",
+          "answer": "text-transform",
+          "explanation": "text-transform: uppercase displays text in capitals while leaving the underlying HTML unchanged.",
+          "tags": ["text-transform"]
+        },
+        {
+          "id": "ct-11",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a rule for class \"heading\" using a bold sans-serif font stack and 1.4 line-height.",
+          "hint": "font-weight, font-family, and line-height.",
+          "code": ".heading {\n  font-family: Arial, sans-serif;\n  font-weight: bold;\n  line-height: 1.4;\n}",
+          "explanation": "The font-family provides a sans-serif stack, font-weight makes it bold, and a unitless line-height of 1.4 scales with the font size.",
+          "tags": ["font-family", "font-weight", "line-height"]
+        },
+        {
+          "id": "ct-12",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "You set font-size: 2em on a child whose parent has font-size: 16px. What is the child's font size?",
+          "hint": "em is relative to the parent's font size.",
+          "options": ["2px", "16px", "18px", "32px"],
+          "answer": "D",
+          "explanation": "em multiplies the parent's font size, so 2em of 16px equals 32px.",
+          "tags": ["em", "font-size", "units"]
+        },
+        {
+          "id": "ct-13",
+          "type": "single",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Which length unit is always relative to the ROOT element's font size, ignoring parent sizes?",
+          "hint": "It starts with the letter r.",
+          "answer": "rem",
+          "explanation": "rem is relative to the root (html) font size, so it is not affected by nested parent font sizes.",
+          "tags": ["rem", "units"]
+        },
+        {
+          "id": "ct-14",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Long words overflow a narrow box. Write a rule for class \"note\" that lets long words break to the next line.",
+          "hint": "overflow-wrap (or word-wrap) with break-word.",
+          "code": ".note {\n  overflow-wrap: break-word;\n}",
+          "explanation": "overflow-wrap: break-word allows the browser to break long words so they wrap inside the box instead of overflowing.",
+          "tags": ["overflow-wrap", "text"]
+        },
+        {
+          "id": "ct-15",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Truncate a single line of text with an ellipsis when it is too wide for class \"title\".",
+          "hint": "Combine white-space: nowrap, overflow: hidden, and text-overflow: ellipsis.",
+          "code": ".title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}",
+          "explanation": "nowrap keeps text on one line, overflow: hidden clips it, and text-overflow: ellipsis shows ... at the cut-off point.",
+          "tags": ["text-overflow", "white-space", "overflow"]
+        }
+      ]
+    },
+    {
+      "id": "css-flex",
+      "title": "Flexbox",
+      "description": "Arrange items in flexible rows and columns with Flexbox.",
+      "icon": "🧱",
+      "level": "intermediate",
+      "questions": [
+        {
+          "id": "cf-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which display value turns an element into a flex container?",
+          "hint": "It is a short word.",
+          "options": ["block", "flex", "grid", "inline"],
+          "answer": "B",
+          "explanation": "display: flex makes an element a flex container and its children flex items.",
+          "tags": ["display", "flex"]
+        },
+        {
+          "id": "cf-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property sets the main axis direction of a flex container?",
+          "hint": "It controls row vs column.",
+          "options": ["flex-wrap", "flex-direction", "align-items", "order"],
+          "answer": "B",
+          "explanation": "flex-direction sets whether items flow in a row or a column, defining the main axis.",
+          "tags": ["flex-direction"]
+        },
+        {
+          "id": "cf-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property aligns flex items along the MAIN axis?",
+          "hint": "It justifies content.",
+          "options": ["align-items", "justify-content", "align-content", "place-items"],
+          "answer": "B",
+          "explanation": "justify-content distributes flex items along the main axis (e.g., center, space-between).",
+          "tags": ["justify-content"]
+        },
+        {
+          "id": "cf-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property aligns flex items along the CROSS axis?",
+          "hint": "It aligns items perpendicular to the main axis.",
+          "answer": "align-items",
+          "explanation": "align-items controls alignment along the cross axis, such as centering items vertically in a row.",
+          "tags": ["align-items"]
+        },
+        {
+          "id": "cf-05",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property adds space between flex items without using margins?",
+          "hint": "It is a single short word.",
+          "answer": "gap",
+          "explanation": "The gap property adds consistent spacing between flex items.",
+          "tags": ["gap", "flex"]
+        },
+        {
+          "id": "cf-06",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Write a rule for class \"row\" that becomes a flex container laying items in a row.",
+          "hint": "display: flex defaults to row.",
+          "code": ".row {\n  display: flex;\n  flex-direction: row;\n}",
+          "explanation": "display: flex creates the flex container, and flex-direction: row arranges items horizontally.",
+          "tags": ["display", "flex-direction"]
+        },
+        {
+          "id": "cf-07",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a rule for class \"center\" that centers its children both horizontally and vertically.",
+          "hint": "Use justify-content and align-items both set to center.",
+          "code": ".center {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}",
+          "explanation": "In a flex container, justify-content: center centers on the main axis and align-items: center on the cross axis.",
+          "tags": ["justify-content", "align-items", "flex"]
+        },
+        {
+          "id": "cf-08",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does justify-content: space-between do?",
+          "hint": "Where does the empty space go?",
+          "options": [
+            "Adds equal space around every item",
+            "Puts equal space between items, none at the ends",
+            "Centers all items together",
+            "Stacks items vertically"
+          ],
+          "answer": "B",
+          "explanation": "space-between places the first and last items at the edges and distributes remaining space evenly between items.",
+          "tags": ["justify-content", "space-between"]
+        },
+        {
+          "id": "cf-09",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which property lets flex items move to a new line when there is not enough room?",
+          "hint": "It wraps the items.",
+          "options": ["flex-wrap", "flex-flow", "flex-grow", "overflow"],
+          "answer": "A",
+          "explanation": "flex-wrap: wrap allows items to flow onto multiple lines instead of overflowing the container.",
+          "tags": ["flex-wrap"]
+        },
+        {
+          "id": "cf-10",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which flex-item property tells an item how much of the leftover space to take, relative to siblings?",
+          "hint": "It is a number like 1 or 2.",
+          "answer": "flex-grow",
+          "explanation": "flex-grow sets how much an item expands to fill free space compared to its siblings.",
+          "tags": ["flex-grow"]
+        },
+        {
+          "id": "cf-11",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a rule so that items in class \"nav\" sit at opposite ends with vertical centering.",
+          "hint": "space-between on main axis, center on cross axis.",
+          "code": ".nav {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}",
+          "explanation": "space-between pushes items to the two ends, and align-items: center vertically centers them, a common navbar pattern.",
+          "tags": ["justify-content", "align-items", "flex"]
+        },
+        {
+          "id": "cf-12",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "The shorthand flex: 1 is equivalent to which set of values?",
+          "hint": "It expands flex-grow, flex-shrink, and flex-basis.",
+          "options": [
+            "flex-grow: 1; flex-shrink: 1; flex-basis: 0%",
+            "flex-grow: 1; flex-shrink: 0; flex-basis: auto",
+            "flex-grow: 0; flex-shrink: 1; flex-basis: 100%",
+            "flex-grow: 1; flex-shrink: 1; flex-basis: auto"
+          ],
+          "answer": "A",
+          "explanation": "flex: 1 expands to flex-grow: 1, flex-shrink: 1, and flex-basis: 0%, letting items share space equally from a zero base.",
+          "tags": ["flex shorthand", "flex-basis"]
+        },
+        {
+          "id": "cf-13",
+          "type": "single",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "In a flex row, which single property on one item can push it to the far right while others stay left?",
+          "hint": "Use an auto value on a spacing property.",
+          "answer": "margin-left: auto",
+          "explanation": "Setting margin-left: auto on an item absorbs all free space to its left, pushing that item to the right edge.",
+          "tags": ["margin", "auto", "flex"]
+        },
+        {
+          "id": "cf-14",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Build a responsive card grid using Flexbox: container class \"cards\" wraps items, has a 16px gap, and each \".cards > div\" grows but is at least 200px wide.",
+          "hint": "Use flex-wrap and gap on the container, and the flex shorthand with a basis on items.",
+          "code": ".cards {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 16px;\n}\n\n.cards > div {\n  flex: 1 1 200px;\n}",
+          "explanation": "flex-wrap and gap arrange wrapping rows, while flex: 1 1 200px lets each card grow and shrink from a 200px basis for a responsive layout.",
+          "tags": ["flex-wrap", "gap", "flex shorthand"]
+        },
+        {
+          "id": "cf-15",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Advanced & scenarios",
+          "question": "A sticky footer layout: make class \"page\" a vertical flex container that fills the viewport height, with the main content area growing to fill space.",
+          "hint": "Column direction, min-height: 100vh, and flex-grow on the main area.",
+          "code": ".page {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n}\n\n.page main {\n  flex-grow: 1;\n}",
+          "explanation": "A column flex container at 100vh with flex-grow: 1 on main pushes the footer to the bottom even when content is short.",
+          "tags": ["flex-direction", "min-height", "flex-grow"]
+        }
+      ]
+    },
+    {
+      "id": "css-grid",
+      "title": "Grid & Responsive Design",
+      "description": "Create two-dimensional layouts with Grid and adapt them to any screen.",
+      "icon": "📐",
+      "level": "intermediate",
+      "questions": [
+        {
+          "id": "cg-01",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which display value creates a grid container?",
+          "hint": "It is named after the layout.",
+          "options": ["flex", "block", "grid", "table"],
+          "answer": "C",
+          "explanation": "display: grid turns an element into a grid container with rows and columns.",
+          "tags": ["display", "grid"]
+        },
+        {
+          "id": "cg-02",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property defines the columns of a grid?",
+          "hint": "It names the template tracks for columns.",
+          "options": ["grid-rows", "grid-template-columns", "column-count", "grid-gap"],
+          "answer": "B",
+          "explanation": "grid-template-columns lists the size of each column track in the grid.",
+          "tags": ["grid-template-columns"]
+        },
+        {
+          "id": "cg-03",
+          "type": "mcq",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "What does the fr unit represent in Grid?",
+          "hint": "It is short for fraction.",
+          "options": [
+            "A fixed pixel amount",
+            "A fraction of the available space",
+            "A font ratio",
+            "A frame rate"
+          ],
+          "answer": "B",
+          "explanation": "The fr unit represents a fraction of the leftover free space in the grid container.",
+          "tags": ["fr", "grid"]
+        },
+        {
+          "id": "cg-04",
+          "type": "single",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Which property adds space between both grid rows and columns at once?",
+          "hint": "Same short word used in Flexbox.",
+          "answer": "gap",
+          "explanation": "The gap property sets spacing between grid tracks for both rows and columns.",
+          "tags": ["gap", "grid"]
+        },
+        {
+          "id": "cg-05",
+          "type": "code",
+          "difficulty": "easy",
+          "category": "Core concepts",
+          "question": "Write a rule for class \"grid\" creating a 3-column grid where each column is equal width.",
+          "hint": "Use repeat() with the fr unit.",
+          "code": ".grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n}",
+          "explanation": "repeat(3, 1fr) creates three equal columns, each taking one fraction of the available space.",
+          "tags": ["grid-template-columns", "repeat", "fr"]
+        },
+        {
+          "id": "cg-06",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a rule for class \"layout\" with a 200px sidebar column and a flexible main column, plus a 20px gap.",
+          "hint": "Two values in grid-template-columns: a fixed one and 1fr.",
+          "code": ".layout {\n  display: grid;\n  grid-template-columns: 200px 1fr;\n  gap: 20px;\n}",
+          "explanation": "The first column is a fixed 200px sidebar and 1fr lets the main column fill the rest, with gap spacing them apart.",
+          "tags": ["grid-template-columns", "fr", "gap"]
+        },
+        {
+          "id": "cg-07",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What is a media query used for?",
+          "hint": "It checks conditions like screen width.",
+          "options": [
+            "Playing audio files",
+            "Applying styles only when conditions like screen width are met",
+            "Loading fonts faster",
+            "Selecting elements by id"
+          ],
+          "answer": "B",
+          "explanation": "A media query applies CSS rules only when conditions such as viewport width are true, enabling responsive design.",
+          "tags": ["media query", "responsive"]
+        },
+        {
+          "id": "cg-08",
+          "type": "mcq",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "What does the meta viewport setting content=\"width=device-width\" help with?",
+          "hint": "It relates to how mobile browsers size the page.",
+          "options": [
+            "Making the page match the device's screen width",
+            "Increasing font size",
+            "Loading images faster",
+            "Adding a border"
+          ],
+          "answer": "A",
+          "explanation": "width=device-width sets the layout viewport to the device width so responsive CSS works correctly on mobile.",
+          "tags": ["viewport", "responsive"]
+        },
+        {
+          "id": "cg-09",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which media feature checks the browser's width to apply mobile styles below 600px? Write the feature name.",
+          "hint": "It compares against a maximum width.",
+          "answer": "max-width",
+          "explanation": "A query like @media (max-width: 600px) applies styles when the viewport is 600px wide or narrower.",
+          "tags": ["media query", "max-width"]
+        },
+        {
+          "id": "cg-10",
+          "type": "code",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Write a media query that makes class \"grid\" a single column on screens 600px wide or less.",
+          "hint": "Wrap the rule in @media (max-width: 600px).",
+          "code": "@media (max-width: 600px) {\n  .grid {\n    grid-template-columns: 1fr;\n  }\n}",
+          "explanation": "Inside the max-width media query, setting grid-template-columns to 1fr collapses the grid into a single column on small screens.",
+          "tags": ["media query", "grid-template-columns"]
+        },
+        {
+          "id": "cg-11",
+          "type": "single",
+          "difficulty": "medium",
+          "category": "Applied practice",
+          "question": "Which property makes an image scale down to fit its container without overflowing? Write the declaration.",
+          "hint": "Limit the maximum width to 100%.",
+          "answer": "max-width: 100%",
+          "explanation": "max-width: 100% (often with height: auto) lets images shrink to fit their container while keeping aspect ratio.",
+          "tags": ["max-width", "responsive", "images"]
+        },
+        {
+          "id": "cg-12",
+          "type": "mcq",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Which value lets a grid create as many equal columns as fit, wrapping automatically without media queries?",
+          "hint": "Combine repeat with auto-fit and minmax.",
+          "options": [
+            "repeat(3, 1fr)",
+            "repeat(auto-fit, minmax(200px, 1fr))",
+            "auto 1fr auto",
+            "minmax(0, 100px)"
+          ],
+          "answer": "B",
+          "explanation": "repeat(auto-fit, minmax(200px, 1fr)) fits as many columns as possible at a minimum of 200px, making a responsive grid without media queries.",
+          "tags": ["auto-fit", "minmax", "repeat"]
+        },
+        {
+          "id": "cg-13",
+          "type": "single",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Which property would you use on a grid item to make it span 2 columns?",
+          "hint": "It is about which column lines the item covers.",
+          "answer": "grid-column",
+          "explanation": "grid-column (e.g., grid-column: span 2) makes a grid item stretch across two columns.",
+          "tags": ["grid-column", "span"]
+        },
+        {
+          "id": "cg-14",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Build a responsive auto-fitting card grid: class \"cards\" with columns at least 250px wide that wrap, and a 1rem gap.",
+          "hint": "Use repeat(auto-fit, minmax(...)) and gap.",
+          "code": ".cards {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 1rem;\n}",
+          "explanation": "auto-fit with minmax(250px, 1fr) creates as many 250px-or-wider columns as fit, wrapping responsively without media queries.",
+          "tags": ["auto-fit", "minmax", "gap"]
+        },
+        {
+          "id": "cg-15",
+          "type": "code",
+          "difficulty": "hard",
+          "category": "Advanced & scenarios",
+          "question": "Create a named-area page layout for class \"page\": a header on top, sidebar and content side by side, and a footer at the bottom.",
+          "hint": "Use grid-template-areas with quoted rows and grid-template-columns.",
+          "code": ".page {\n  display: grid;\n  grid-template-columns: 200px 1fr;\n  grid-template-areas:\n    \"header header\"\n    \"sidebar content\"\n    \"footer footer\";\n}\n\n.page header { grid-area: header; }\n.page aside { grid-area: sidebar; }\n.page main { grid-area: content; }\n.page footer { grid-area: footer; }",
+          "explanation": "grid-template-areas maps named regions to a visual layout, and each element claims its area with grid-area for a clear page structure.",
+          "tags": ["grid-template-areas", "grid-area", "grid-template-columns"]
+        }
+      ]
+    }
+  ]
+}
